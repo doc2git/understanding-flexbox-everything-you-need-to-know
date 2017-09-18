@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" class="js" lang="zh-hans">
+<head profile="http://www.w3.org/1999/xhtml/vocab"><script async="" src="about:blank"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<meta content="理解Flexbox：你需要知道的一切" about="/css3/understanding-flexbox-everything-you-need-to-know.html" property="dc:title">
+<meta name="description" content="这篇文章介绍了Flexbox模块所有基本概念，而且是介绍Flexbox模块的很好的一篇文章，所以这篇文章非常的长，你要有所准备。学习Flexbox可不是件很有趣的事情，因为它将挑战你所知道的CSS布局方面的知识。当然这也是非常正常的，因为一切知识都是值得学习的。另外你要认值对待Flexbox。因为它是现代Web布局的主流方式之一，不会很快就消失。它也成为一个新的W3C标准规范。既然如此，那让我们张开双臂，开始拥抱它吧！">
+<meta name="keywords" content="前端,Flexbox,教程">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html">
+<link rel="shortlink" href="https://www.w3cplus.com/node/2099">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta itemprop="name" content="W3cplus">
+  <meta itemprop="image" content="//www.w3cplus.com/w3cplus-logo.jpg">
+  <meta name="baidu-site-verification" content="ftyq813qEZgpw9nb">
+  <meta name="applicable-device" content="pc,mobile">
+  <title>理解Flexbox：你需要知道的一切_Flexbox 教程_w3cplus</title>
+  <link type="text/css" rel="stylesheet" href="css_pbm0lsQQJ7A7WCCIMgxLho6mI_kBNgznNUWmTWcnfoE.css" media="all">
+<link type="text/css" rel="stylesheet" href="css_hYCLW089C9S9sP3ZYkuG6R-Q5ZHbEhblZBFjwZ_bE_I.css" media="all">
+<link type="text/css" rel="stylesheet" href="css_rJUBdT2SlFgltMk5Co8MLf3X-CyFSvQlj5MDgaVsYZY.css" media="all">
+<link type="text/css" rel="stylesheet" href="css_FjWdtfD_8xCqMqEyh4qy1A62uDPO85_OPMib7A_q1TM.css" media="all">
+  <script src="about:blank" type="text/javascript"></script><script src="about:blank"></script><script type="text/javascript" src="about:blank"></script>
+<script type="text/javascript" src="about:blank"></script>
+<script type="text/javascript" src="about:blank"></script>
+<script type="text/javascript" src="about:blank"></script>
+<script type="text/javascript">/* Code removed by ScrapBook */</script>
+<!-- w3cplus.com Baidu tongji analytics -->
+<script>/* Code removed by ScrapBook */</script>
+<style id="weel__float-action-button--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-button{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;left:0;top:0;position:fixed;z-index:999999}weel#weel__float-action-button._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-button--container{box-shadow:0 1px 2px rgba(97,97,97,.65);cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid #ebebeb;border-radius:4px;background-color:#fafafa;height:28px;width:28px;position:relative}weel#weel__float-action-button--icon{font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;background-size:cover;color:#3e84f4;height:20px;width:20px;margin:auto;left:-1px;bottom:0;right:0;top:-1px;position:absolute;font-size:20px}weel#weel__float-action-button--icon:before{content:"\e927"}</style><style id="weel__float-action-panel--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-panel{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;width:24px;padding:12px 0;left:0;top:0;z-index:999999;position:fixed}weel#weel__float-action-panel:after,weel#weel__float-action-panel:before{content:"";border:10px solid transparent;border-bottom-color:#fff;height:0;width:0;margin:auto;left:0;right:0;top:0;position:absolute;display:block}weel#weel__float-action-panel:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:hsla(0,0%,48%,.24);top:-10px;z-index:1}weel#weel__float-action-panel:after{top:-6px;z-index:2}weel#weel__float-action-panel._reverse:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:transparent;border-top-color:hsla(0,0%,48%,.24);bottom:-10px;top:auto;z-index:1}weel#weel__float-action-panel._reverse:after{border-bottom-color:transparent;border-top-color:#fff;top:auto;bottom:-6px;z-index:2}weel#weel__float-action-panel._no-arrow:after,weel#weel__float-action-panel._no-arrow:before{display:none}weel#weel__float-action-panel._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-panel--container{box-shadow:0 1px 2px rgba(97,97,97,.65);border:1px solid #ebebeb;border-radius:2px;background-color:#fff;width:220px;z-index:2;position:relative}weel#weel__float-action-panel--i-voice:before{content:"\e050"}weel#weel__float-action-panel--i-copy:before{content:"\e14d"}weel#weel__float-action-panel--i-copy,weel#weel__float-action-panel--i-voice{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;height:24px;width:24px;color:#666;line-height:24px;margin-left:0;position:absolute;overflow:hidden}weel#weel__float-action-panel--i-copy:hover,weel#weel__float-action-panel--i-voice:hover{color:#3e84f4}weel#weel__float-action-panel--i-copy:active,weel#weel__float-action-panel--i-voice:active{color:gray}weel#weel__float-action-panel--output-stream-result{background-color:#fff;padding:16px}weel#weel__float-action-panel--output-stream-result._on{display:block}weel#weel__float-action-panel--output-stream-explain,weel#weel__float-action-panel--output-stream-phonetic{position:relative}weel#weel__float-action-panel--output-stream-explain._on,weel#weel__float-action-panel--output-stream-phonetic._on{display:block}weel#weel__float-action-panel--output-stream-explain-plain,weel#weel__float-action-panel--output-stream-phonetic-plain{font-size:14px;line-height:1.35;padding-top:4px;text-indent:24px;padding-right:16px;width:100%}weel#weel__float-action-panel--output-stream-phonetic{color:#999;margin-bottom:6px}weel#weel__float-action-panel--output-stream-explain-plain{font-weight:600}weel#weel__float-action-panel--output-stream-explain-plain+textarea{opacity:0;height:0;width:100%;border:none;position:absolute}weel#weel__float-action-panel--output-stream-explain-detail{max-height:120px;overflow-x:hidden;overflow-y:auto;border-top:1px solid #f5f5f5;font-size:12px;line-height:1.75;padding-top:8px;margin:8px 0;color:#4d4d4d;display:none}weel#weel__float-action-panel--output-stream-explain-detail._on{display:block}</style><style id="weel__float-action-button--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-button{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;left:0;top:0;position:fixed;z-index:999999}weel#weel__float-action-button._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-button--container{box-shadow:0 1px 2px rgba(97,97,97,.65);cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid #ebebeb;border-radius:4px;background-color:#fafafa;height:28px;width:28px;position:relative}weel#weel__float-action-button--icon{font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;background-size:cover;color:#3e84f4;height:20px;width:20px;margin:auto;left:-1px;bottom:0;right:0;top:-1px;position:absolute;font-size:20px}weel#weel__float-action-button--icon:before{content:"\e927"}</style><style id="weel__float-action-panel--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-panel{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;width:24px;padding:12px 0;left:0;top:0;z-index:999999;position:fixed}weel#weel__float-action-panel:after,weel#weel__float-action-panel:before{content:"";border:10px solid transparent;border-bottom-color:#fff;height:0;width:0;margin:auto;left:0;right:0;top:0;position:absolute;display:block}weel#weel__float-action-panel:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:hsla(0,0%,48%,.24);top:-10px;z-index:1}weel#weel__float-action-panel:after{top:-6px;z-index:2}weel#weel__float-action-panel._reverse:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:transparent;border-top-color:hsla(0,0%,48%,.24);bottom:-10px;top:auto;z-index:1}weel#weel__float-action-panel._reverse:after{border-bottom-color:transparent;border-top-color:#fff;top:auto;bottom:-6px;z-index:2}weel#weel__float-action-panel._no-arrow:after,weel#weel__float-action-panel._no-arrow:before{display:none}weel#weel__float-action-panel._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-panel--container{box-shadow:0 1px 2px rgba(97,97,97,.65);border:1px solid #ebebeb;border-radius:2px;background-color:#fff;width:220px;z-index:2;position:relative}weel#weel__float-action-panel--i-voice:before{content:"\e050"}weel#weel__float-action-panel--i-copy:before{content:"\e14d"}weel#weel__float-action-panel--i-copy,weel#weel__float-action-panel--i-voice{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;height:24px;width:24px;color:#666;line-height:24px;margin-left:0;position:absolute;overflow:hidden}weel#weel__float-action-panel--i-copy:hover,weel#weel__float-action-panel--i-voice:hover{color:#3e84f4}weel#weel__float-action-panel--i-copy:active,weel#weel__float-action-panel--i-voice:active{color:gray}weel#weel__float-action-panel--output-stream-result{background-color:#fff;padding:16px}weel#weel__float-action-panel--output-stream-result._on{display:block}weel#weel__float-action-panel--output-stream-explain,weel#weel__float-action-panel--output-stream-phonetic{position:relative}weel#weel__float-action-panel--output-stream-explain._on,weel#weel__float-action-panel--output-stream-phonetic._on{display:block}weel#weel__float-action-panel--output-stream-explain-plain,weel#weel__float-action-panel--output-stream-phonetic-plain{font-size:14px;line-height:1.35;padding-top:4px;text-indent:24px;padding-right:16px;width:100%}weel#weel__float-action-panel--output-stream-phonetic{color:#999;margin-bottom:6px}weel#weel__float-action-panel--output-stream-explain-plain{font-weight:600}weel#weel__float-action-panel--output-stream-explain-plain+textarea{opacity:0;height:0;width:100%;border:none;position:absolute}weel#weel__float-action-panel--output-stream-explain-detail{max-height:120px;overflow-x:hidden;overflow-y:auto;border-top:1px solid #f5f5f5;font-size:12px;line-height:1.75;padding-top:8px;margin:8px 0;color:#4d4d4d;display:none}weel#weel__float-action-panel--output-stream-explain-detail._on{display:block}</style><style id="weel__float-action-button--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-button{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;left:0;top:0;position:fixed;z-index:999999}weel#weel__float-action-button._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-button--container{box-shadow:0 1px 2px rgba(97,97,97,.65);cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid #ebebeb;border-radius:4px;background-color:#fafafa;height:28px;width:28px;position:relative}weel#weel__float-action-button--icon{font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;background-size:cover;color:#3e84f4;height:20px;width:20px;margin:auto;left:-1px;bottom:0;right:0;top:-1px;position:absolute;font-size:20px}weel#weel__float-action-button--icon:before{content:"\e927"}</style><style id="weel__float-action-panel--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-panel{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;width:24px;padding:12px 0;left:0;top:0;z-index:999999;position:fixed}weel#weel__float-action-panel:after,weel#weel__float-action-panel:before{content:"";border:10px solid transparent;border-bottom-color:#fff;height:0;width:0;margin:auto;left:0;right:0;top:0;position:absolute;display:block}weel#weel__float-action-panel:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:hsla(0,0%,48%,.24);top:-10px;z-index:1}weel#weel__float-action-panel:after{top:-6px;z-index:2}weel#weel__float-action-panel._reverse:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:transparent;border-top-color:hsla(0,0%,48%,.24);bottom:-10px;top:auto;z-index:1}weel#weel__float-action-panel._reverse:after{border-bottom-color:transparent;border-top-color:#fff;top:auto;bottom:-6px;z-index:2}weel#weel__float-action-panel._no-arrow:after,weel#weel__float-action-panel._no-arrow:before{display:none}weel#weel__float-action-panel._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-panel--container{box-shadow:0 1px 2px rgba(97,97,97,.65);border:1px solid #ebebeb;border-radius:2px;background-color:#fff;width:220px;z-index:2;position:relative}weel#weel__float-action-panel--i-voice:before{content:"\e050"}weel#weel__float-action-panel--i-copy:before{content:"\e14d"}weel#weel__float-action-panel--i-copy,weel#weel__float-action-panel--i-voice{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;height:24px;width:24px;color:#666;line-height:24px;margin-left:0;position:absolute;overflow:hidden}weel#weel__float-action-panel--i-copy:hover,weel#weel__float-action-panel--i-voice:hover{color:#3e84f4}weel#weel__float-action-panel--i-copy:active,weel#weel__float-action-panel--i-voice:active{color:gray}weel#weel__float-action-panel--output-stream-result{background-color:#fff;padding:16px}weel#weel__float-action-panel--output-stream-result._on{display:block}weel#weel__float-action-panel--output-stream-explain,weel#weel__float-action-panel--output-stream-phonetic{position:relative}weel#weel__float-action-panel--output-stream-explain._on,weel#weel__float-action-panel--output-stream-phonetic._on{display:block}weel#weel__float-action-panel--output-stream-explain-plain,weel#weel__float-action-panel--output-stream-phonetic-plain{font-size:14px;line-height:1.35;padding-top:4px;text-indent:24px;padding-right:16px;width:100%}weel#weel__float-action-panel--output-stream-phonetic{color:#999;margin-bottom:6px}weel#weel__float-action-panel--output-stream-explain-plain{font-weight:600}weel#weel__float-action-panel--output-stream-explain-plain+textarea{opacity:0;height:0;width:100%;border:none;position:absolute}weel#weel__float-action-panel--output-stream-explain-detail{max-height:120px;overflow-x:hidden;overflow-y:auto;border-top:1px solid #f5f5f5;font-size:12px;line-height:1.75;padding-top:8px;margin:8px 0;color:#4d4d4d;display:none}weel#weel__float-action-panel--output-stream-explain-detail._on{display:block}</style><style id="weel__float-action-button--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-button{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;left:0;top:0;position:fixed;z-index:999999}weel#weel__float-action-button._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-button--container{box-shadow:0 1px 2px rgba(97,97,97,.65);cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid #ebebeb;border-radius:4px;background-color:#fafafa;height:28px;width:28px;position:relative}weel#weel__float-action-button--icon{font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;background-size:cover;color:#3e84f4;height:20px;width:20px;margin:auto;left:-1px;bottom:0;right:0;top:-1px;position:absolute;font-size:20px}weel#weel__float-action-button--icon:before{content:"\e927"}</style><style id="weel__float-action-panel--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-panel{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;width:24px;padding:12px 0;left:0;top:0;z-index:999999;position:fixed}weel#weel__float-action-panel:after,weel#weel__float-action-panel:before{content:"";border:10px solid transparent;border-bottom-color:#fff;height:0;width:0;margin:auto;left:0;right:0;top:0;position:absolute;display:block}weel#weel__float-action-panel:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:hsla(0,0%,48%,.24);top:-10px;z-index:1}weel#weel__float-action-panel:after{top:-6px;z-index:2}weel#weel__float-action-panel._reverse:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:transparent;border-top-color:hsla(0,0%,48%,.24);bottom:-10px;top:auto;z-index:1}weel#weel__float-action-panel._reverse:after{border-bottom-color:transparent;border-top-color:#fff;top:auto;bottom:-6px;z-index:2}weel#weel__float-action-panel._no-arrow:after,weel#weel__float-action-panel._no-arrow:before{display:none}weel#weel__float-action-panel._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-panel--container{box-shadow:0 1px 2px rgba(97,97,97,.65);border:1px solid #ebebeb;border-radius:2px;background-color:#fff;width:220px;z-index:2;position:relative}weel#weel__float-action-panel--i-voice:before{content:"\e050"}weel#weel__float-action-panel--i-copy:before{content:"\e14d"}weel#weel__float-action-panel--i-copy,weel#weel__float-action-panel--i-voice{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;height:24px;width:24px;color:#666;line-height:24px;margin-left:0;position:absolute;overflow:hidden}weel#weel__float-action-panel--i-copy:hover,weel#weel__float-action-panel--i-voice:hover{color:#3e84f4}weel#weel__float-action-panel--i-copy:active,weel#weel__float-action-panel--i-voice:active{color:gray}weel#weel__float-action-panel--output-stream-result{background-color:#fff;padding:16px}weel#weel__float-action-panel--output-stream-result._on{display:block}weel#weel__float-action-panel--output-stream-explain,weel#weel__float-action-panel--output-stream-phonetic{position:relative}weel#weel__float-action-panel--output-stream-explain._on,weel#weel__float-action-panel--output-stream-phonetic._on{display:block}weel#weel__float-action-panel--output-stream-explain-plain,weel#weel__float-action-panel--output-stream-phonetic-plain{font-size:14px;line-height:1.35;padding-top:4px;text-indent:24px;padding-right:16px;width:100%}weel#weel__float-action-panel--output-stream-phonetic{color:#999;margin-bottom:6px}weel#weel__float-action-panel--output-stream-explain-plain{font-weight:600}weel#weel__float-action-panel--output-stream-explain-plain+textarea{opacity:0;height:0;width:100%;border:none;position:absolute}weel#weel__float-action-panel--output-stream-explain-detail{max-height:120px;overflow-x:hidden;overflow-y:auto;border-top:1px solid #f5f5f5;font-size:12px;line-height:1.75;padding-top:8px;margin:8px 0;color:#4d4d4d;display:none}weel#weel__float-action-panel--output-stream-explain-detail._on{display:block}</style><style id="weel__float-action-button--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-button{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;left:0;top:0;position:fixed;z-index:999999}weel#weel__float-action-button._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-button--container{box-shadow:0 1px 2px rgba(97,97,97,.65);cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid #ebebeb;border-radius:4px;background-color:#fafafa;height:28px;width:28px;position:relative}weel#weel__float-action-button--icon{font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;background-size:cover;color:#3e84f4;height:20px;width:20px;margin:auto;left:-1px;bottom:0;right:0;top:-1px;position:absolute;font-size:20px}weel#weel__float-action-button--icon:before{content:"\e927"}</style><style id="weel__float-action-panel--css">@font-face {font-family: 'weel-translate';src: url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.ttf") format("truetype"), url("moz-extension://9a1f5f2a-e5bf-4341-9286-8ec3c7d5fe7f/fonts/weel-translate.woff") format("woff");font-weight: normal;font-style: normal;}weel{box-sizing:border-box;display:block}weel *,weel :after,weel :before{box-sizing:inherit}weel#weel__float-action-panel{-webkit-transition:visibility .25s ease,opacity .25s ease;transition:visibility .25s ease,opacity .25s ease;width:24px;padding:12px 0;left:0;top:0;z-index:999999;position:fixed}weel#weel__float-action-panel:after,weel#weel__float-action-panel:before{content:"";border:10px solid transparent;border-bottom-color:#fff;height:0;width:0;margin:auto;left:0;right:0;top:0;position:absolute;display:block}weel#weel__float-action-panel:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:hsla(0,0%,48%,.24);top:-10px;z-index:1}weel#weel__float-action-panel:after{top:-6px;z-index:2}weel#weel__float-action-panel._reverse:before{-webkit-filter:blur(1px);filter:blur(1px);border-width:12px;border-bottom-color:transparent;border-top-color:hsla(0,0%,48%,.24);bottom:-10px;top:auto;z-index:1}weel#weel__float-action-panel._reverse:after{border-bottom-color:transparent;border-top-color:#fff;top:auto;bottom:-6px;z-index:2}weel#weel__float-action-panel._no-arrow:after,weel#weel__float-action-panel._no-arrow:before{display:none}weel#weel__float-action-panel._on{visibility:visible!important;opacity:1!important}weel#weel__float-action-panel--container{box-shadow:0 1px 2px rgba(97,97,97,.65);border:1px solid #ebebeb;border-radius:2px;background-color:#fff;width:220px;z-index:2;position:relative}weel#weel__float-action-panel--i-voice:before{content:"\e050"}weel#weel__float-action-panel--i-copy:before{content:"\e14d"}weel#weel__float-action-panel--i-copy,weel#weel__float-action-panel--i-voice{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:weel-translate!important;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;height:24px;width:24px;color:#666;line-height:24px;margin-left:0;position:absolute;overflow:hidden}weel#weel__float-action-panel--i-copy:hover,weel#weel__float-action-panel--i-voice:hover{color:#3e84f4}weel#weel__float-action-panel--i-copy:active,weel#weel__float-action-panel--i-voice:active{color:gray}weel#weel__float-action-panel--output-stream-result{background-color:#fff;padding:16px}weel#weel__float-action-panel--output-stream-result._on{display:block}weel#weel__float-action-panel--output-stream-explain,weel#weel__float-action-panel--output-stream-phonetic{position:relative}weel#weel__float-action-panel--output-stream-explain._on,weel#weel__float-action-panel--output-stream-phonetic._on{display:block}weel#weel__float-action-panel--output-stream-explain-plain,weel#weel__float-action-panel--output-stream-phonetic-plain{font-size:14px;line-height:1.35;padding-top:4px;text-indent:24px;padding-right:16px;width:100%}weel#weel__float-action-panel--output-stream-phonetic{color:#999;margin-bottom:6px}weel#weel__float-action-panel--output-stream-explain-plain{font-weight:600}weel#weel__float-action-panel--output-stream-explain-plain+textarea{opacity:0;height:0;width:100%;border:none;position:absolute}weel#weel__float-action-panel--output-stream-explain-detail{max-height:120px;overflow-x:hidden;overflow-y:auto;border-top:1px solid #f5f5f5;font-size:12px;line-height:1.75;padding-top:8px;margin:8px 0;color:#4d4d4d;display:none}weel#weel__float-action-panel--output-stream-explain-detail._on{display:block}</style></head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-2099 node-type-blog featured disqus-processed">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">跳转到主要内容</a>
+  </div>
+    
+
+  <div id="branding" role="branding">
+    <div class="container">
+        <div class="region region-branding">
+    <div id="block-block-44" class="block block-block">
+
+    
+  <div class="content">
+      </div>
+</div>
+  </div>
+    </div>
+  </div> 
+
+<div id="page" role="page">
+  <div class="container">
+    
+    <div class="col-main">
+      <div class="main-wrap">
+        
+                    <div class="region region-featured">
+    <div id="block-block-50" class="block block-block">
+
+    
+  <div class="content">
+      </div>
+</div>
+  </div>
+                
+        <div class="page-inner">
+                      <div id="breadcrumb" role="breadcrumb">
+              <h2 class="element-invisible">你在这里</h2>            </div>
+          
+          
+          <a id="main-content"></a>
+                                <h1 class="title" id="page-title">
+              理解Flexbox：你需要知道的一切            </h1>
+          
+                    
+                                <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-2099" class="node node-blog node-promoted node-full clearfix" about="/css3/understanding-flexbox-everything-you-need-to-know.html" typeof="sioc:Post sioct:BlogPost">
+  
+  <div class="node-header">
+              
+            <div class="tags">
+        <div class="field field-name-field-blog-tag field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://www.w3cplus.com/blog/tags/157.html" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="" target="_blank">Flexbox</a></div></div></div>      </div>
+  </div>
+
+      <div id="node-top" class="node-top">
+      <div id="block-block-38" class="block block-block">
+
+    
+  <div class="content">
+    
+<div>
+
+</div>
+  </div>
+</div>
+    </div>
+  
+  <div class="body-content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>这篇文章介绍了Flexbox模块所有基本概念，而且是介绍Flexbox模块的很好的一篇文章，所以这篇文章非常的长，你要有所准备。</p>
+
+<h2>学习Flexbox的曲线</h2>
+
+<p><a href="http://andyet.com/team/phil/" target="_blank">@Philip Roberts</a>在Twitter上发了一个推：</p>
+
+<p></p>
+
+<p>学习Flexbox可不是件很有趣的事情，因为它将挑战你所知道的CSS布局方面的知识。当然这也是非常正常的，因为一切知识都是值得学习的。</p>
+
+<p>另外你要认值对待Flexbox。因为它是现代Web布局的主流方式之一，不会很快就消失。它也成为一个新的W3C标准规范。既然如此，那让我们张开双臂，开始拥抱它吧！</p>
+
+<h2>你将学习</h2>
+
+<p>我将带你先了解Flexbox的一些基础知识。我想这是开始尝试学习Flexbox的必经阶段。</p>
+
+<p><img src="understanding-flexbox-1.png" alt=""></p>
+
+<p>学习基础知识是件很有意思的事情，更有意思的是可以通过学习这些基础理论知识，在实际的应用程序中使用Flexbox。</p>
+
+<p>我将带您亲历很多“小知识点”之后，在文章末尾，使用Flexbox来做一个音乐应用程序的布局（UI界面布局）。</p>
+
+<p><img src="understanding-flexbox-2.png" alt=""></p>
+
+<p>看上去是不是棒棒的？</p>
+
+<p>在开始进入学习Flexbox构建音乐应用程序的布局之前，你还将需要了解Flexbox在<a href="http://www.w3cplus.com/responsive" target="_blank">响应式Web设计</a>中所起的作用。</p>
+
+<p>我将会把这一切都告诉你。</p>
+
+<p><img src="understanding-flexbox-3.gif" alt=""></p>
+
+<p><em>上图是<a href="http://dribbble.com/jonadinges" target="_blank">@Jona Dinges</a>设计的</em>。</p>
+
+<p>在你开始构建音乐应用程序界面之前，我将一起陪你做一些练习。这看起来可能很无聊，但这是让你彻底掌握Flexbox必经的过程，只有这样才能让你很擅长的使用Flexbox。</p>
+
+<p>说了这么多的废话，那我们赶紧的开始吧！（难怪篇幅长，原来开始有这么的...(^_^)）</p>
+
+<h2>简介</h2>
+
+<p><img src="understanding-flexbox-4.jpeg" alt=""></p>
+
+<p>CSS在过去的几年里已发生了很大的变化。CSS中引入了设计师喜欢的<strong>filters</strong>、<strong>transitions</strong>和<strong>transforms</strong>等。但有些东西已经消失了，可是我们都渴望这些东西能一直存在。</p>
+
+<p>使用CSS制作智能的、灵活的页面布局一直以来都是CSSer想要的，也有很人使用各种不同的CSS黑魔法去实现智能的页面布局。</p>
+
+<p>我们总是不得不忍受<code>float</code>、<code>display:table</code>这些布局方式带来的痛苦。如果你完写过一段时间的CSS，你可能有相关体会。如果你没有写过CSS，那你是幸运的，在这也欢迎你来到CSS布局中一个更美好的世界中！</p>
+
+<p>似乎设计师和前端开发人员的这次祈祷终于被上帝听到了。而且这一次，在很大的风格上做出了改变。</p>
+
+<p>现在我们可以抛弃老司机们常用的CSS布局的黑魔法。也可以和<code>float</code>以及<code>display:table</code>说拜拜。</p>
+
+<p><strong>是时候去拥抱一个更简洁的制作智能布局的现代语法。欢迎CSS Flexbox模块的到来。</strong></p>
+
+<h2>Flexbox是什么</h2>
+
+<p>根据规范中的描述可知道，Flexbox模块提供了一个有效的布局方式，即使不知道视窗大小或者未知元素情况之下都可以智能的，灵活的调整和分配元素和空间两者之关的关系。简单的理解，就是可以自动调整，计算元素在容器空间中的大小。</p>
+
+<p>这样听起来是不是太官方了，其实我也明白这种感觉。</p>
+
+<h2>如何开始使用Flexbox</h2>
+
+<p>这是每个人都会问的第一个问题，答案是比你预想的要简单得多。</p>
+
+<p>开始使用Flexbox时，你所要做的第一件事情就是声明一个Flex容器(Flex Container)。</p>
+
+<p>比如一个简单的项目列表，我们常常看到的HTML形式如下所示：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--parent element--&gt;</span></span>
+  <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--first child element--&gt;</span></span>
+  <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--second child element--&gt;</span></span>
+  <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--third child element--&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p>一眼就能看出来，这就是一个无序列表(<code>ul</code>)里有三个列表元素(<code>li</code>)。</p>
+
+<p>你可以把<code>ul</code>称为父元素，<code>li</code>称为子元素。</p>
+
+<p>要开始使用Flexbox，必须先让父元素变成一个Flex容器。</p>
+
+<p>你可以在父元素中显式的设置<code>display:flex</code>或者<code>display:inline-flex</code>。就这么的简单，这样你就可以开始使用Flexbox模块。</p>
+
+<p>实际是显式声明了Flex容器之后，一个Flexbox格式化上下文（Flexbox formatting context）就立即启动了。</p>
+
+<p>告诉你，它不是像你想像的那么复杂。</p>
+
+<p><img src="understanding-flexbox-5.jpeg" alt=""></p>
+
+<p>使用一个无序列表(<code>ul</code>)和一群列表元素(<code>li</code>)，启动Flexbox格式化上下文的方式如下：</p>
+
+<pre class="css"><code class="css"><span class="comment"><span class="comment">/* 声明父元素为flex容器 */</span></span>
+<span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value">flex;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*或者 inline-flex*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>给列表元素(<code>li</code>)添加一点基本样式，这里你可以看到发生了什么。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">width</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">100</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">height</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">100</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#8cacea</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">8</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>你将看到的效果如下图所示：</p>
+
+<p><img src="understanding-flexbox-6.png" alt=""></p>
+
+<p>你可能没有注意到，但事实上已经发生了变化。现在已经是一个Flexbox格式化上下文。</p>
+
+<p>记住，默认情况下，<code>div</code>在CSS中垂直堆栈的，也就是说从上到下排列显示，就像下图这样：</p>
+
+<p><img src="understanding-flexbox-7.png" alt=""></p>
+
+<p>上面的图是你希望的结果。</p>
+
+<p>然而，简单的写一行代码<code>display:flex</code>，你立即就可以看到布局改变了。</p>
+
+<p>现在列表元素(<code>li</code>)水平排列，从左到右。就像是你使用了<code>float</code>一样。</p>
+
+<p><img src="understanding-flexbox-8.png" alt=""></p>
+
+<p>Flexbox模块的开始，正如前面的介绍，在任何父元素上使用<code>display:flex</code>。</p>
+
+<p>你可能不明白为什么这一变化就能改变列表元素的排列方式。但我可以负责任的告诉你，你深入学习之后就能明白。现在你只需要信任就足够了。</p>
+
+<p>理解<code>flex display</code>是使用Flexbox的一个开始。</p>
+
+<p>还有一件事情，我需要提醒您注意。</p>
+
+<p>一旦你显式的设置了<code>display</code>属性的值为<code>flex</code>，无序列表<code>ul</code>就会自动变成Flex容器，而其子元素（在本例中是指列表元素<code>li</code>）就变成了Flex项目。</p>
+
+<p>这些术语会一次又一次的提到，我更希望你通过一些更有趣的东西来帮助你学习Flexbox模块。</p>
+
+<p>我使用了两个关键词，我们把重点放到他们身上。了解他们对于理解后面的知识至关重要。</p>
+
+<ul>
+<li><strong>Flex容器（Flex Container）</strong>：父元素显式设置了<code>display:flex</code></li>
+<li><strong>Flex项目（Flex Items）</strong>：Flex容器内的子元素</li>
+</ul>
+
+<p><img src="understanding-flexbox-9.jpeg" alt=""></p>
+
+<p>这些只是Flexbox模块的基础。</p>
+
+<h2>Flex容器属性</h2>
+
+<pre class="undefined"><code class="undefined">flex-direction || flex-wrap || flex-flow || justify-content || align-items || align-content
+</code></pre>
+
+<p><img src="understanding-flexbox-10.jpeg" alt=""></p>
+
+<p>通过上面的内容，我们了解了一些基础知识。知道了Flex容器和Flex项目是什么，以及如何启动Flexbox模块。</p>
+
+<p>现在是一个好好利用它们的时间了。</p>
+
+<p>有设置一个父元素作为一个Flex容器，几个对齐属性可以使用在Flex容器上。</p>
+
+<p>正如你的块元素的<code>width</code>设置了<code>200px</code>，有六种不同的属性可以用于Flex容器。</p>
+
+<p>好消息是，定义这些属性不同于你以往使用过的任何一种方法。</p>
+
+<h3>flex-direction</h3>
+
+<p><code>flex-direction</code>属性控制Flex项目沿着主轴（Main Axis）的排列方向。</p>
+
+<p>它具有四个值：</p>
+
+<pre class="css"><code class="css"><span class="comment"><span class="comment">/* ul 是一个flex容器 */</span></span>
+<span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> row || column || row-reverse || column-reverse;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>简单点来说，就是<code>flex-direction</code>属性让你决定Flex项目如何排列。它可以是行（水平）、列（垂直）或者行和列的反向。</p>
+
+<p>从技术上讲，<strong>水平</strong>和<strong>垂直</strong>在<strong>Flex世界</strong>中不是什么方向（概念）。它们常常被称为<strong>主轴（Main-Axis）</strong>和<strong>侧轴（Cross-Axis）</strong>。默认设置如下所示。</p>
+
+<p><img src="understanding-flexbox-11.jpg" alt=""></p>
+
+<p>通俗的说，感觉<strong>Main-Axis</strong>就是水平方向，从左到右，这也是默认方向。<strong>Cross-Axis</strong>是垂直方向，从上往下。</p>
+
+<p>默认情况下，<code>flex-direction</code>属性的值是<code>row</code>。它让Flex项目沿着Main-Axis排列（从左向右，水平排列）。这就解释了本文开始部分时无序列表的表现效果。</p>
+
+<p>尽管<code>flex-direction</code>属性并没有显式的设置，但它的默认值是<code>row</code>。Flex项目将沿着Main-Axis从左向右水平排列。</p>
+
+<p><img src="understanding-flexbox-12.png" alt=""></p>
+
+<p>如果把<code>flex-direction</code>的属性值修改成<code>column</code>，这时Flex项目将沿着Cross-Axis从上到下垂直排列。不再是从左向右排列。</p>
+
+<p><img src="understanding-flexbox-13.png" alt=""></p>
+
+<h3>flex-wrap</h3>
+
+<p><code>flex-wrap</code>属性有三个属性值：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-wrap</span></span></span><span class="rule">:<span class="value"><span class="value"> wrap || nowrap || wrap-reverse;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>我将通过一个例子来解释如何使用<code>flex-wrap</code>属性。首先在前面的无序列表的HTML结构中多添加几个列表项<code>li</code>。</p>
+
+<p>将Flex容器设置适合大小以适合放置更多的列表项目或者说让列表项目换行排列。这两种方式，你是怎么想的？</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--parent element--&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--first child element--&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--second child element--&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--third child element--&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p>幸运的是，新添加的Flex项目刚好适合Flex容器大小。也就是Flex项目能刚好填充Flex容器。</p>
+
+<p><img src="understanding-flexbox-14.png" alt=""></p>
+
+<p>再深入一点。</p>
+
+<p>继续给Flex容器内添加Flex项目，比如说添加到<code>10</code>个Flex项目。这个时候会发生什么？</p>
+
+<p><img src="understanding-flexbox-15.png" alt=""></p>
+
+<p>同样的，Flex容器还是能容纳所有的子元素（Flex项目）排列，即使浏览器出现了水平滚动条（当Flex容器中添加了很多个Flex项目，至使Flex容器的宽度大于视窗宽度）。</p>
+
+<p>这是每一个Flex容器的默认行为。Flex容器会在一行内容纳所有的Flex项目。这是因为<code>flex-wrap</code>属性的默认值是<code>nowrap</code>。也就是说，Flex项目在Flex容器内<strong>不换行</strong>排列。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-wrap</span></span></span><span class="rule">:<span class="value"><span class="value"> nowrap;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*Flex容器内的Flex项目不换行排列*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><code>no-wrap</code>不是不可改变的。我们可以改变。</p>
+
+<p>当你希望Flex容器内的Flex项目达到一定数量时，能换行排列。当Flex容器中没有足够的空间放置Flex项目（Flex项目默认宽度），那么Flex项目将会换行排列。把它（<code>flex-wrap</code>）的值设置为<code>wrap</code>就有这种可能：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-wrap</span></span></span><span class="rule">:<span class="value"><span class="value"> wrap;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>现在Flex项目在Flex容器中就会多行排列。</p>
+
+<p>在这种情况下，当一行再不能包含所有列表项的默认宽度，他们就会多行排列。即使调整浏览器大小。</p>
+
+<p>就是这样子。<strong>注意</strong>：Flex项目现在显示的宽度是他们的默认宽度。也没有必要强迫一行有多少个Flex项目。</p>
+
+<p><img src="understanding-flexbox-16.png" alt=""></p>
+
+<p>除此之外，还有一个值：<code>wrap-reverse</code>。</p>
+
+<p>是的，你猜对了。它让Flex项目在容器中多行排列，只是方向是反的。</p>
+
+<p><img src="understanding-flexbox-17.png" alt=""></p>
+
+<h3>flex-flow</h3>
+
+<p><code>flex-flow</code>是<code>flex-direction</code>和<code>flex-wrap</code>两个属性的速记属性。</p>
+
+<p>你还记得使用<code>border</code>的速记写法？<code>border: 1px solid red</code>。这里的概念是相同的，多个值写在同一行，比如下面的示例：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-flow</span></span></span><span class="rule">:<span class="value"><span class="value"> row wrap;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-18.jpeg" alt=""></p>
+
+<p>相当于：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> row;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-wrap</span></span></span><span class="rule">:<span class="value"><span class="value"> wrap;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>除了这个组合之外，你还可以尝试一些其它的组合。<code>flex-flow: row nowrap</code>，<code>flex-flow: column wrap</code>，<code>flex-flow: column nowrap</code>。</p>
+
+<p>我相信你了解这些会产生什么样的效果，要不尝试一下。</p>
+
+<h3>justify-content</h3>
+
+<p>Flexbox模块真得很好。如果你仍然不相信它的魅力，那么<code>justify-content</code>属性可能会说服你。</p>
+
+<p><code>justify-content</code>属性可以接受下面五个值之一：</p>
+
+<pre class="sql"><code class="sql">ul {
+    justify-content: flex-<span class="operator"><span class="keyword"><span class="operator"><span class="keyword">start</span></span></span><span class="operator"> || flex-<span class="keyword"><span class="keyword">end</span></span> || center || <span class="keyword"><span class="keyword">space</span></span>-between || <span class="keyword"><span class="keyword">space</span></span>-around
+}
+</span></span></code></pre>
+
+<p><code>justify-content</code>属性又能给我们带来什么呢？提醒你一下，你是否还记得<code>text-align</code>属性。其实<code>justify-content</code>属性主要定义了Flex项目在Main-Axis上的对齐方式。</p>
+
+<p>来看一个简单的例子，还是考虑下面这个简单的无序列表：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>1<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>2<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>3<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p>添加一些基本样式：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value">flex;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">border</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>px solid red;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">list-style</span></span></span><span class="rule">:<span class="value"><span class="value"> none;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#e8e8e9</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+<span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#8cacea</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">width</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">100</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">height</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">100</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">8</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">4</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>你将看到的效果是这样：</p>
+
+<p><img src="understanding-flexbox-19.png" alt=""></p>
+
+<p>通过<code>justify-content</code>属性，可以让Flex项目在整个Main-Axis上按照我自己的欲望设置其对齐方式。</p>
+
+<p>可能会有以下几种类型。</p>
+
+<h4>flex-start</h4>
+
+<p><code>justify-content</code>的默认属性值是<code>flex-start</code>。</p>
+
+<p><code>flex-start</code>让所有Flex项目靠Main-Axis开始边缘（左对齐）。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> flex-start;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-20.png" alt=""></p>
+
+<h4>flex-end</h4>
+
+<p><code>flex-end</code>让所有Flex项目靠Main-Axis结束边缘（右对齐）。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> flex-end;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-21.png" alt=""></p>
+
+<h4>center</h4>
+
+<p>和你预期的一样，<code>center</code>让所有Flex项目排在Main-Axis中间（居中对齐）。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> center;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-22.png" alt=""></p>
+
+<h4>space-between</h4>
+
+<p><code>space-between</code>让除了第一个和最一个Flex项目的两者间间距相同（两端对齐）。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> space-between;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-23.png" alt=""></p>
+
+<p>你注意到有什么不同？看看下图的描述：</p>
+
+<p><img src="understanding-flexbox-24.jpeg" alt=""></p>
+
+<h4>space-around</h4>
+
+<p>最后，<code>space-around</code>让每个Flex项目具有相同的空间。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> space-around;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-25.png" alt=""></p>
+
+<p>和<code>space-between</code>有点不同，第一个Flex项目和最后一个Flex项目距Main-Axis开始边缘和结束边缘的的间距是其他相邻Flex项目间距的一半。看看下图的描述：</p>
+
+<p><img src="understanding-flexbox-26.jpeg" alt=""></p>
+
+<p>千万不要觉得这些练习太多，这些练习可以帮助熟悉Flexbox属性的语法。也能更好的帮助你更好的理解它们是如何影响Flex项目沿着Main-Axis的对齐方式。</p>
+
+<h3>align-items</h3>
+
+<p><code>align-items</code>属性类似于<code>justify-content</code>属性。只有理解了<code>justify-content</code>属性，才能更好的理解这个属性。</p>
+
+<p><code>align-items</code>属性可以接受这些属性值：<code>flex-start || flex-end || center || stretch || baseline</code>。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">align-items</span></span></span><span class="rule">:<span class="value"><span class="value"> flex-start || flex-end || center || stretch || baseline
+}</span></span></span><span class="value"></span></span></span><span class="rule"><span class="value"></span></span></span>
+</code></pre>
+
+<p>它主要用来控制Flex项目在<strong>Cross-Axis</strong>对齐方式。这也是<code>align-items</code>和<code>justify-content</code>两个属性之间的不同之处。</p>
+
+<p>下面是不同的值对Flex项目产生的影响。不要忘记这些属性只对Cross-Axis轴有影响。</p>
+
+<h4>stretch</h4>
+
+<p><code>align-items</code>的默认值是<code>stretch</code>。让所有的Flex项目高度和Flex容器高度一样。</p>
+
+<p><img src="understanding-flexbox-27.png" alt=""></p>
+
+<h4>flex-start</h4>
+
+<p>正如你所希望的<code>flex-start</code>让所有Flex项目靠Cross-Axis开始边缘（顶部对齐）。</p>
+
+<p><img src="understanding-flexbox-28.png" alt=""></p>
+
+<h4>flex-end</h4>
+
+<p><code>flex-end</code>让所有Flex项目靠Cross-Axis结束边缘（底部对齐）。</p>
+
+<p><img src="understanding-flexbox-29.png" alt=""></p>
+
+<h4>center</h4>
+
+<p><code>center</code>让Flex项目在Cross-Axis中间（居中对齐）。</p>
+
+<p><img src="understanding-flexbox-30.png" alt=""></p>
+
+<h4>baseline</h4>
+
+<p>让所有Flex项目在Cross-Axis上沿着他们自己的基线对齐。</p>
+
+<p><img src="understanding-flexbox-31.png" alt=""></p>
+
+<p>结果看上去有点像<code>flex-start</code>，但略有不同。那“<strong>baseline</strong>”到底是什么呢？下图应该能帮助你更好的理解。</p>
+
+<p><img src="understanding-flexbox-32.jpeg" alt=""></p>
+
+<h3>align-content</h3>
+
+<p>还记得前面讨论的<code>wrap</code>属性吗？我们在Flex容器中添加了更多的Flex项目。让Flex容器中的Flex项目多行排列。</p>
+
+<p><code>align-content</code>属性用于多行的Flex容器。它也是用来控制Flex项目在Flex容器里的排列方式，排列效果和<code>align-items</code>值一样，但除了<code>baseline</code>属性值。</p>
+
+<p>像<code>align-items</code>属性一样，它的默认值是<code>stretch</code>。你现在应该熟悉这些值。那它又是如何影响Flex容器里的10个Flex项目多行排列方式。</p>
+
+<h4>stretch</h4>
+
+<p>使用<code>stretch</code>会拉伸Flex项目，让他们沿着Cross-Axis适应Flex容器可用的空间。</p>
+
+<p>你看到的Flex项目间的间距，是Flex项目自身设置的<code>margin</code>值。</p>
+
+<p><img src="understanding-flexbox-33.png" alt=""></p>
+
+<h4>flex-start</h4>
+
+<p>之前你看到过<code>flex-start</code>。这次是让多行Flex项目靠Cross-Axis开始边缘。沿着Cross-Axis从上到下排列。因此Flex项目在Flex容器中顶部对齐。</p>
+
+<p><img src="understanding-flexbox-34.png" alt=""></p>
+
+<h4>flex-end</h4>
+
+<p><code>flex-end</code>刚好和<code>flex-start</code>相反，让多行Flex项目靠着Cross-Axis结束位置。让Flex项目沿着Cross-Axis从下到上排列，即底部对齐。</p>
+
+<p><img src="understanding-flexbox-35.png" alt=""></p>
+
+<h4>center</h4>
+
+<p>你猜到了，<code>center</code>让多行Flex项目在Cross-Axis中间。在Flex容器中居中对齐。</p>
+
+<p><img src="understanding-flexbox-36.png" alt=""></p>
+
+<p>这是Flex容器的最后一个属性。你现在知道如何使用各种Flex容器属性。你可以在工作中实践这些属性。</p>
+
+<h2>Flex项目属性</h2>
+
+<pre class="undefined"><code class="undefined">order || flex-grow || flex-shrink || flex-basis
+</code></pre>
+
+<p><img src="understanding-flexbox-37.jpeg" alt=""></p>
+
+<p>在前一节中，我解释了Flex容器及其对齐属性。</p>
+
+<p>确实漂亮。我想你也找到了感觉。现在我们把注意力从Flex容器转移到Flex项目及其对齐属性。</p>
+
+<p>像Flex容器，对齐属性也可以用在所有的Flex项目。那我们开始吧。</p>
+
+<h3>order</h3>
+
+<p>允许Flex项目在一个Flex容器中重新排序。基本上，你可以改变Flex项目的顺序，从一个位置移动到另一个地方。</p>
+
+<p>这不会影响源代码。这也意味着Flex项目的位置在HTML源代码中不需要改变。<code>order</code>属性的默认值是<code>0</code>。它可以接受一个正值，也可以接受一个负值。</p>
+
+<p>值得注意的是，Flex项目会根据<code>order</code>值重新排序。从底到高。</p>
+
+<p>要说明总得需要一个例子。考虑下面这个无序列表：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>1<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>2<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>3<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>4<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p>默认情况下，所有Flex项目的<code>order</code>值都是<code>0</code>。把前面给列表的样式运用过来。看到的效果如下：</p>
+
+<p><img src="understanding-flexbox-38.png" alt=""></p>
+
+<p>Flex项目显示是按HTML源代码中的顺序来显示，Flex项目<code>1</code>、<code>2</code>、<code>3</code>和<code>4</code>。</p>
+
+<p>如果因为某些原因，在不改变HTML文档源码情况之下，想把Flex项目一从<code>1</code>变成最后。<strong>不能修改HTML文档源码</strong>意思是你不能把HTML代码改成：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>2<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>3<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>4<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>1<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p>这个时候就需要<code>order</code>属性。这个时候你需要把Flex项目一的<code>order</code>值设置比其他Flex项目值更大。</p>
+
+<p>如果你以前使用过<code>z-index</code>属性，那你就能更好的理解这个属性。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span><span class="pseudo"><span class="pseudo">:nth-child(1)</span></span><span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">order</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*设置一个比0更大的值*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>Flex项目就重新进行了排列，从低到高排列。不要忘记了，默认情况下，Flex项目2、3、4的<code>order</code>值为<code>0</code>。现在Flex项目1的<code>order</code>值为<code>1</code>。</p>
+
+<p><img src="understanding-flexbox-39.png" alt=""></p>
+
+<p>Flex项目2、3和4的<code>order</code>值都是<code>0</code>。HTML源代码秩序并没有修改过。如果给Flex项目2的<code>order</code>设置为<code>2</code>呢？</p>
+
+<p>是的，你猜对了。它也增加堆栈。现在代表Flex项目的最高的<code>order</code>值。</p>
+
+<p><img src="understanding-flexbox-40.png" alt=""></p>
+
+<p>当两个Flex项目具有相同的<code>order</code>值呢？在下面的示例中，把Flex项目1和3设置相同的<code>order</code>值。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span><span class="pseudo"><span class="pseudo">:nth-child(1)</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">order</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+<span class="tag"><span class="tag">li</span></span><span class="pseudo"><span class="pseudo">:nth-child(3)</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">order</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-41.png" alt=""></p>
+
+<p>现在仍是从低到高排列。这次Flex项目3排在Flex项目1后面，那是因为在HTML文档中Flex项目3出现在Flex项目1后面。</p>
+
+<p>如果两个以下Flex项目有相同的<code>order</code>值时，Flex项目重新排序是基于HTML源文件的位置进行排序。这个属性就不做过多的解释。接下来继续介绍其他的属性。</p>
+
+<h3>flex-grow 和 flex-shrink</h3>
+
+<p>Flex项目最优秀的一点就是<strong>灵活性</strong>。<code>flex-grow</code>和<code>flex-shrink</code>属性允许我们玩这个灵活性。</p>
+
+<p><code>flex-grow</code>和<code>flex-shrink</code>属性控制Flex项目在容器有多余的空间如何放大（扩展），在没有额外空间又如何缩小。</p>
+
+<p>他们可能接受<code>0</code>或者大于<code>0</code>的任何正数。<code>0 || positive number</code>。</p>
+
+<p>接下来阐述它们的使用。使用一个简单的无序列表做为例子，它只包含一个列表项。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>I am a simple list<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+ul {
+    display: flex;
+}
+</code></pre>
+
+<p>添加更多的样式，看起来像这样：</p>
+
+<p><img src="understanding-flexbox-42.png" alt=""></p>
+
+<p>默认情况下，<code>flex-grow</code>属性值设置为<code>0</code>。表示Flex项目不会增长，填充Flex容器可用空间。取值为<code>0</code>就是一个开和关的按钮。表示<code>flex-grow</code>开关是关闭的。</p>
+
+<p>如果把<code>flex-grow</code>的值设置为<code>1</code>，会发生：</p>
+
+<p><img src="understanding-flexbox-43.png" alt=""></p>
+
+<p>现在Flex项目扩展了，占据了Flex容器所有可用空间。也就是说开关打开了。如果你试着调整你浏览器的大小，Flex项目也会缩小，以适应新的屏幕宽度。</p>
+
+<p>为什么？默认情况下，<code>flex-shrink</code>的值是<code>1</code>，也就是说<code>flex-shrink</code>开关也是打开的。</p>
+
+<p>可以仔细看看<code>flex-grow</code>和<code>flex-shrink</code>属性在各种情况下的效果，这样能更好的帮助你理解。</p>
+
+<h3>flex-basis</h3>
+
+<p>记得前面我说过，Flex项目是当我没有的。但我们也可以控制。</p>
+
+<p><code>flex-basis</code>属性可以指定Flex项目的初始大小。也就是<code>flex-grow</code>和<code>flex-shrink</code>属性调整它的大小以适应Flex容器之前。</p>
+
+<p>前面介绍的是非常生要的，所以我们需要花一点时间来加强对他们的理解。</p>
+
+<p><code>flex-basis</code>默认的值是<code>auto</code>。<code>flex-basis</code>可以取任何用于<code>width</code>属性的任何值。比如 <code>% || em || rem || px</code>等。</p>
+
+<p><strong>注意</strong>：如果<code>flex-basis</code>属性的值是<code>0</code>时，也需要使用单位。即<code>flex-basis: 0px</code>不能写成<code>flex-basis:0</code>。</p>
+
+<p>这里同样使用只有一个列表项的列表做为示例。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>I am a simple list<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+
+ul {
+    display: flex
+}
+li {
+    padding: 4px; /*some breathing space*/
+}
+</code></pre>
+
+<p>默认情况，Flex项目的初始宽度由<code>flex-basis</code>的默认值决定，即：<code>flex-basis: auto</code>。Flex项目宽度的计算是基于内容的多少来自动计算（很明显，加上了<code>padding</code>值）。</p>
+
+<p><img src="understanding-flexbox-44.png" alt=""></p>
+
+<p>这意味着，如果你增加Flex项目中的内容，它可以自动调整大小。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>I am a simple list AND I am a simple list<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-45.png" alt=""></p>
+
+<p>然而，如果你想将Flex项目设置一个固定的宽度，你也可以这样做：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-basis</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">150</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>现在Flex项目的宽度受到了限制，它的宽度是<code>150px</code>。</p>
+
+<p><img src="understanding-flexbox-46.png" alt=""></p>
+
+<p>它变得更加有趣。</p>
+
+<h3>flex速记</h3>
+
+<p><code>flex</code>是<code>flex-grow</code>、<code>flex-shrink</code>和<code>flex-basis</code>三个属性的速记（简写）。</p>
+
+<p>在适当的时候，我建议你使用<code>flex</code>，这样比使用三个属性方便。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">1</span></span> auto;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>上面的代码相当于：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-grow</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-shrink</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-basis</span></span></span><span class="rule">:<span class="value"><span class="value"> auto;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>注意它们之间的顺序。<code>flex-grow</code>第一，然后是<code>flex-shrink</code>，最后是<code>flex-basis</code>。缩写成<strong>GSB</strong>，可以帮助你更好的记忆。</p>
+
+<p>如果<code>flex</code>属性值中少一个值，会发生什么呢？</p>
+
+<p>如果你只设置了<code>flex-grow</code>和<code>flex-shrink</code>值，<code>flex-basis</code>可能是默认值<code>0</code>。这就是所谓的绝对flex项目。只有当你设置了<code>flex-basis</code>，你会得到一个相对flex项目。</p>
+
+<pre class="css"><code class="css"><span class="comment"><span class="comment">/* 这是一个绝对的Flex项目 */</span></span>
+<span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span> <span class="number"><span class="number">1</span></span>;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*flex-basis 默认值为 0*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+<span class="comment"><span class="comment">/* 这是一个相对的Flex项目 */</span></span>
+<span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-basis</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">200</span></span>px;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/* 只设置了flex-basis的值 */</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>我知道你在想什么。你肯定想知道相对和绝对的Flex项目是什么？我将在后面回答这个问题。你只需要再次盲目信任就足够了。</p>
+
+<p>让我们看看一些非常有用的<code>flex</code>值。</p>
+
+<h4>flex: 0 1 auto</h4>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">1</span></span> auto;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>这相当于写了<code>flex</code>默认属性值以及所有的Flex项目都是默认行为。</p>
+
+<p><img src="understanding-flexbox-47.jpeg" alt=""></p>
+
+<p>很容易理解这一点，首先看看<code>flex-basis</code>属性。<code>flex-basis</code>设置为<code>auto</code>，这意味着Flex项目的初始宽度计算是基于内容的大小。</p>
+
+<p>明白了？</p>
+
+<p>把注意力放到下一个属性，<code>flex-grow</code>设置为<code>0</code>。这意味着<code>flex-grow</code>不会改变Flex项目的初始宽度。也就是说，<code>flex-grow</code>的开关是关闭的。</p>
+
+<p><code>flex-grow</code>控制Flex项目的增长，如果其值设置为<code>0</code>，Flex项目不会放大以适应屏幕（Flex容器大小）。</p>
+
+<p>最后，<code>flex-shrink</code>的值是<code>1</code>。也就是说，Flex项目在必要时会缩小。</p>
+
+<p>应用到Flex项目效果就是这样子：</p>
+
+<p><img src="understanding-flexbox-48.png" alt=""></p>
+
+<p><strong>注意</strong>：Flex项目没有增长（宽度）。如果有必要，如果调整浏览器(调小浏览器宽度)，Flex项目会自动计算宽度。</p>
+
+<h4>flex: 0 0 auto</h4>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> auto;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>这个相当于<code>flex: none</code>。</p>
+
+<p>还是老规矩：宽度是被自动计算，不过弹性项目不会伸展或者收缩（因为二者都被设置为零）。伸展和收缩开关都被关掉了。</p>
+
+<p>它基本上是一个固定宽度的元素，其初始宽度是基于弹性项目中内容大小。</p>
+
+<p>看看这个 flex 简写是如何影响两个弹性项目的。一个弹性项目会比另一个容纳更多内容。</p>
+
+<p><img src="understanding-flexbox-49.png" alt=""></p>
+
+<p>应该注意到的第一件事情是，这两个弹性项目的宽度是不同的。因为宽度是基于内容宽度而自动计算的，所以这是预料得到的。</p>
+
+<p>试着缩放一下浏览器，你会注意到弹性项目不会收缩其宽度。它们从父元素中突出来了，要看到所有内容，必须横向滚动浏览器。</p>
+
+<p>不要着急，稍后我会展示如何处理这种怪异的行为。</p>
+
+<p><img src="understanding-flexbox-50.png" alt=""></p>
+
+<p>在缩放浏览器时，弹性项目不会收缩，而是从弹性容器中突出来了。</p>
+
+<h4>flex: 1 1 auto</h4>
+
+<p>这与 <code>flex: auto</code> 项目相同。</p>
+
+<p>还是按我前面立的规矩。即，<strong>自动计算初始化宽度，但是如果有必要，会伸展或者收缩以适应整个可用宽度</strong>。</p>
+
+<p>伸展和收缩开关打开了，宽度自动被计算。</p>
+
+<p><img src="understanding-flexbox-51.png" alt=""></p>
+
+<p>此时，项目会填满可用空间，在缩放浏览器时也会随之收缩。</p>
+
+<h4>flex: "positive number"</h4>
+
+<p>这里正数可以代表任何正数（没有引号）。这与 <code>flex: “正数” 1 0</code> 相同。</p>
+
+<p><code>flex: 2 1 0</code> 与写为 <code>flex: 2</code> 是一样的，<code>2</code> 表示任何正数。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">2</span></span> <span class="number"><span class="number">1</span></span> <span class="number"><span class="number">0</span></span>;</span></span></span><span class="value"></span></span> <span class="rule"><span class="rule">/ *与 <span class="attribute"><span class="attribute">flex</span></span>:<span class="value"><span class="value"> <span class="number"><span class="number">2</span></span>相同 */
+}</span></span></span><span class="value"></span></span></span><span class="rule"><span class="value"></span></span></span>
+</code></pre>
+
+<p>与前面我立的规矩一样，即，<strong>将弹性项目的初始宽度设置为零（嗯？没有宽度？），伸展项目以填满可用空间，并且最后只要有可能就收缩项目</strong>。</p>
+
+<p>弹性项目没有宽度，那么宽度该如何计算呢？</p>
+
+<p>这个时候 <code>flex-grow</code> 值就起作用了，它决定弹性项目变宽的程度。由它来负责没有宽度的问题。</p>
+
+<p>当有多个弹性项目，并且其初始宽度 <code>flex-basis</code> 被设置为基于零的任何值时，比如 <code>0px</code>，使用这种 <code>flex</code> 简写更实用。</p>
+
+<p>实际发生的是，弹性项目的宽度被根据 <code>flex-grow</code> 值的比例来计算。</p>
+
+<p>考虑如下两个列表项标记及 CSS：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>I am One<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>I am Two<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+
+ul {
+    display: flex;
+}
+
+/* 第一个弹性项目 */
+li:nth-child(1) {
+    flex: 2 1 0; /* 与写成 flex: 2 相同*/
+}
+
+/* 第二个弹性项目 */
+li:nth-child(2){
+    flex: 1 1 0;
+    background-color: #8cacea;
+}
+</code></pre>
+
+<p>记住设置 <code>flex-grow : 1</code>，会让弹性项目填满可用空间。伸展开关打开了。</p>
+
+<p>这里有两个弹性项目。一个的 <code>flex-grow</code> 属性值是 <code>1</code>，另一个是 <code>2</code>，那么会出现啥情况呢？</p>
+
+<p>两个项目上的伸展开关都打开了。不过，伸展度是不同的，<code>1</code> 和 <code>2</code>。</p>
+
+<p>二者都会填满可用空间，不过是按比例的。</p>
+
+<p>它是这样工作的：前一个占 <code>1/3</code> 的可用空间，后一个占 <code>2/3</code> 的可用空间。</p>
+
+<p>知道是我怎么得到这结果的么？</p>
+
+<p>是根据基本的数学比例。"单项比例 / 总比例"，我希望你没有漏过这些数学课。</p>
+
+<p><img src="understanding-flexbox-52.png" alt=""></p>
+
+<p>看到出现啥情况了么？</p>
+
+<p>即使两个弹性项目内容一样大（近似），它们所占空间还是不同。宽度不是基于内容的大小，而是伸展值。一个是另一个的约两倍。</p>
+
+<blockquote>
+  <p>有关于<code>flex-grow</code>、<code>flex-basis</code>和<code>flex-shrink</code>之间的详细计算，可以点击<a href="http://twitter.com/cwrightdesign" target="_blank">@Chris Wright</a>写的《<a href="http://chriswrightdesign.com/experiments/flexbox-adventures/" target="_blank">Flexbox adventures</a>》博文。<a href="http://www.w3cplus.com/css3/flexbox-adventures.html" target="_blank">译文可以点击这里</a>。</p>
+</blockquote>
+
+<h3>align-self</h3>
+
+<p><code>align-self</code> 属性更进一步让我们更好地控制弹性项目。</p>
+
+<p>你已经看到 <code>align-items</code> 属性是如何有助于整体对齐弹性容器内的所有弹性项目了。</p>
+
+<p>如果想改变一个弹性项目沿着侧轴的位置，而不影响相邻的弹性项目，该怎么办呢？</p>
+
+<p>这是 <code>align-self</code> 属性大展拳脚的地方了。</p>
+
+<p>该属性的取值可以是这些值之一：<code>auto || flex-start || flex-end || center || baseline || stretch</code>。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span><span class="pseudo"><span class="pseudo">:first-of-type</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">align-self</span></span></span><span class="rule">:<span class="value"><span class="value"> auto || flex-start || flex-end || center || baseline || stretch
+}</span></span></span><span class="value"></span></span></span><span class="rule"><span class="value"></span></span></span>
+</code></pre>
+
+<p>这些值你已经熟悉过了，不过作为回顾，如下是它们如何影响特定目标项目。这里是容器内的第一个项目。目标弹性项目是红色的。</p>
+
+<h4>flex-end</h4>
+
+<p><code>flex-end</code>将目标项目（Flex项目）对齐到Cross-Axis的末端。</p>
+
+<p><img src="understanding-flexbox-53.png" alt=""></p>
+
+<h4>center</h4>
+
+<p><code>center</code>将目标项目（Flex项目）对齐到Cross-Axis的中间。</p>
+
+<p><img src="understanding-flexbox-54.png" alt=""></p>
+
+<h4>stretch</h4>
+
+<p><code>stretch</code>会将目标项目拉伸，以沿着Cross-Axis填满Flex容器的可用空间（Flex项目高度和Flex容器高度一样）。</p>
+
+<p><img src="understanding-flexbox-55.png" alt=""></p>
+
+<h4>baseline</h4>
+
+<p><code>baseline</code>将目标项目沿着基线对齐。它与<code>flex-start</code>的效果看起来是一样的，不过我相信你理解了基线是什么。因为前面已经解释过。</p>
+
+<p><img src="understanding-flexbox-56.png" alt=""></p>
+
+<h4>auto</h4>
+
+<p><code>auto</code> 是将目标Flex项目的值设置为父元素的 <code>align-items</code>值，或者如果该元素没有父元素的话，就设置为 <code>stretch</code>。</p>
+
+<p>在下面的情况下，弹性容器的 <code>align-items</code> 值为 <code>flex-start</code>。这会把所有弹性项目都对齐到Cross-Axis的开头。目标Flex项目现在继承了 <code>flex-start</code> 值，即父元素的 <code>align-item</code> 值。</p>
+
+<p><img src="understanding-flexbox-57.png" alt=""></p>
+
+<p>如下是上面Flex项目的基础样式。这样你可以对发生的事情理解得更好点。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">border</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>px solid red;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">list-style</span></span></span><span class="rule">:<span class="value"><span class="value"> none;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> space-between;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">align-items</span></span></span><span class="rule">:<span class="value"><span class="value"> flex-start;</span></span></span><span class="value"></span></span>  <span class="comment"><span class="comment">/* 影响所有弹性项目 */</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">min-height</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">50</span></span>%;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#e8e8e9</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">width</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">100</span></span>px;</span></span></span><span class="value"></span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#8cacea</span></span>;</span></span></span><span class="value"></span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">8</span></span>px;</span></span></span><span class="value"></span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">2</span></span>rem;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>现在你差不多已经为有趣的部分做好准备了 :-)</p>
+
+<h2>绝对和相对Flex项目</h2>
+
+<p><img src="understanding-flexbox-58.jpeg" alt=""></p>
+
+<p>前面了解了一些基本概念，但重要的是要澄清一些重要的概念。那绝对和相对Flex项目之间到底有啥区别呢？二者之间主要的区别在于间距及如何计算间距。</p>
+
+<p>一个相对Flex项目内的间距是根据它的内容大小来计算的。而在绝对Flex项目中，只根据 <code>flex</code> 属性来计算，而不是内容。</p>
+
+<p>考虑如下的标记：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>
+        This is just some random text  to buttress the point being explained.
+    Some more random text to buttress the point being explained.
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>This is just a shorter random text.<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p>两个列表项元素，一个比另一个的文本多得多。</p>
+
+<p>加点样式：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*触发弹性盒*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> auto;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*记住这与 flex: 1 1 auto; 相同*/</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">border</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">2</span></span>px solid red;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">2</span></span>em;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>如下是结果：</p>
+
+<p><img src="understanding-flexbox-59.png" alt=""></p>
+
+<p>如果你已经忘了的话，<code>flex: 1 1 auto</code> 是与 <code>flex-grow: 1</code>、<code>flex-shrink: 1</code> 和 <code>flex-basis: auto</code> 相同的。</p>
+
+<p>Flex项目的初始宽度是被自动计算的（<code>flex-basis: auto</code>），然后会伸展以适应可用空间（<code>flex-grow: 1</code>）。</p>
+
+<p>当Flex项目因为被设置为 <code>flex-basis: auto</code>，而导致宽度被自动计算时，是基于Flex项目内包含的内容的大小而计算。</p>
+
+<p>上面示例中Flex项目的内容大小不相同。因此，Flex项目的大小就会不相等。</p>
+
+<p>既然各个宽度开始就不是相等的（它是基于内容的），那么当项目伸展时，宽度也保持不相等。</p>
+
+<p><img src="understanding-flexbox-60.png" alt=""></p>
+
+<p>上面示例中的Flex项目是相对Flex项目。</p>
+
+<p>下面我们把Flex项目变成绝对的, 就是说这次它们的宽度是基于 <code>flex</code> 属性，而不是内容的大小。一行代码就可以出奇迹。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span> ;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*与 flex: 1 1 0 相同*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>效果如下：</p>
+
+<p><img src="understanding-flexbox-61.png" alt=""></p>
+
+<p>这次看到两个Flex项目的宽度相同了吗？</p>
+
+<p>Flex项目的初始宽度是零（<code>flex-basis: 0</code>），并且它们会伸展以适应可用空间。当有两到多个Flex项目的 <code>flex-basis</code> 取值为<code>0</code>时，它们会基于 <code>flex-grow</code>值共享可用空间。</p>
+
+<p>这个之前就讨论过了。现在宽度不会基于内容大小而计算，而是基于指定的 <code>flex</code> 属性值来计算。这样你就明白了吧。对么？</p>
+
+<p><strong>绝对Flex项目的宽度只基于 <code>flex</code> 属性，而相对Flex项目的宽度基于内容大小</strong>。</p>
+
+<h2>Auto-margin 对齐</h2>
+
+<p><img src="understanding-flexbox-62.jpeg" alt=""></p>
+
+<p>当心Flex项目上的 <code>margin: auto</code> 对齐。当在Flex项目上使用 <code>margin: auto</code> 时，事情看起来就很怪异了。</p>
+
+<p>你需要理解会发生什么。它会导致不可预料的结果，不过我打算解释解释。</p>
+
+<p>当在Flex项目上使用 <code>margin: auto</code> 时，值为 <code>auto</code> 的方向（左、右或者二者都是）会占据所有剩余空间。</p>
+
+<p>这玩意有点难理解。下面我来说明一下。</p>
+
+<p>考虑如下的导航栏标记以及 CSS 样式：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Branding<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Home<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Services<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>About<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Contact<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+
+ul {
+    display: flex;
+}
+li {
+    flex: 0 0 auto;
+}
+</code></pre>
+
+<p>你可以看到如下的效果：</p>
+
+<p><img src="understanding-flexbox-63.png" alt=""></p>
+
+<p>这里有几件事情要注意：</p>
+
+<ul>
+<li><code>flex-grow</code> 值为设置为<code>0</code>。这就解释了为什么列表项不会伸展。</li>
+<li>Flex项目向Main-Axis的开头对齐（这是默认行为）。</li>
+<li>由于项目被对齐到Main-Axis开头，右边就有一些多余的空间。看到了吧？</li>
+</ul>
+
+<p><img src="understanding-flexbox-64.jpeg" alt=""></p>
+
+<p>现在在第一个列表项（branding）上使用 <code>margin: auto</code>，看看会出啥情况。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span><span class="pseudo"><span class="pseudo">:nth-child(1)</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin-right</span></span></span><span class="rule">:<span class="value"><span class="value"> auto;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*只应用到右外边距*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-65.png" alt=""></p>
+
+<p>刚刚发生了什么？之前的剩余空间现在已经被分配到第一个Flex项目的右边了。</p>
+
+<p><img src="understanding-flexbox-66.jpeg" alt=""></p>
+
+<p>还记得我前面说的话吧？<strong>当在Flex项目上使用 <code>margin: auto</code> 时，值为 <code>auto</code> 的方向（左、右或者二者都是）会占据所有剩余空间</strong>。</p>
+
+<p>如果想让一个Flex项目的两边都用自动外边距对齐，该怎么办呢？</p>
+
+<pre class="css"><code class="css"><span class="comment"><span class="comment">/* 如果愿意的话，也可以用 margin 简写来设置两个边 */</span></span>
+<span class="tag"><span class="tag">li</span></span><span class="pseudo"><span class="pseudo">:nth-child(1)</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin-left</span></span></span><span class="rule">:<span class="value"><span class="value"> auto;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin-right</span></span></span><span class="rule">:<span class="value"><span class="value"> auto
+}</span></span></span><span class="value"></span></span></span><span class="rule"><span class="value"></span></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-67.png" alt=""></p>
+
+<p>现在空白被分配到Flex项目的两边了。</p>
+
+<p>那么，这是不是对很酷的自动外边距对齐的一种折衷方案呢？看起来是。如果没注意的话，它也可能是受挫之源。当在一个Flex项目上使用自动外边距（<code>margin: auto</code>）时，<code>justify-content</code> 属性就不起作用了。</p>
+
+<p>例如，在上面的Flex容器上通过 <code>justify-content</code> 属性，设置不同的对齐选项时，对布局没有影响。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> flex-end;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-68.png" alt=""></p>
+
+<h2>Flexbox实战</h2>
+
+<p>导航系统是每个网站或者应用程序的重要组成部分。这个世界上的每个网站都会有某种导航系统。</p>
+
+<p>下面我们看看这些热门网站，以及它们是如何实现其导航系统的。你看到Flexbox是如何帮助你更高效地创建这些布局吗？</p>
+
+<p>也仔细看看哪里会用得上自动外边距特性。</p>
+
+<h3>Bootstrap导航</h3>
+
+<p><img src="understanding-flexbox-69.png" alt=""></p>
+
+<h3>AirBnB PC端导航</h3>
+
+<p><img src="understanding-flexbox-70.png" alt=""></p>
+
+<h3>Twitter PC端导航</h3>
+
+<p><img src="understanding-flexbox-71.png" alt=""></p>
+
+<p>建议你自己写代码。试着自己实现这些导航系统。现在你已经掌握了所需的所有知识。你所需要的是一点勇气去开始写。</p>
+
+<p>下一节再见。但愿在你已经完成了导航系统练习之后。</p>
+
+<h2>切换flex-direction会发生什么？</h2>
+
+<p>提醒一下：<strong>将会有一些奇怪的东东出现</strong>。</p>
+
+<p><img src="understanding-flexbox-72.jpeg" alt=""></p>
+
+<p>在入手学习Flexbox时，这个部分是最恼火的。我估计很多弹性世界的新手也会发现如此。</p>
+
+<p>还记得我说过默认的Main-Axis方向是从左到右，Cross-Axis方向是从上到下吧？</p>
+
+<p><img src="understanding-flexbox-73.jpg" alt=""></p>
+
+<p>好吧，现在你也可以改变这个方向。</p>
+
+<p>正如在较早的小节中所描述的那样，用 <code>flex-direction: column</code> 时，确实是这样。</p>
+
+<p>当用 <code>flex-direction: column</code> 时，Main-Axis和Cross-Axis会向如下所看到的那样改变：</p>
+
+<p><img src="understanding-flexbox-74.jpg" alt=""></p>
+
+<p>如果曾用英语写过文字，那么你就知道英语是从左到右，从上到下来写的。</p>
+
+<p>Flexbox的默认Main-Axis和Cross-Axis也是采用同样的方向。</p>
+
+<p>不过，如果将 <code>flex-direction</code> 切换为 <code>column</code>，它就不再遵循英语的范式，而是日语的范式！</p>
+
+<p>是的，日语。</p>
+
+<p>如果你用日语写过文字，那么应该很熟悉了。（郑重声明，我从没用过日语写过文字）。</p>
+
+<p>日文通常是从上到下写的！没那么怪，对吧？</p>
+
+<p>这就解释了为嘛这对英语写作者可能有点恼火。</p>
+
+<p><img src="understanding-flexbox-75.jpg" alt=""></p>
+
+<p>看看下面这个例子。标准无序列表(<code>ul</code>)，带有 <code>3</code> 个列表项(<code>li</code>)。不过这次我要改变一下<code>flex-direction</code>。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+
+ul {
+    display: flex;
+    flex-direction: column;
+}
+</code></pre>
+
+<p>如下是方向变化之前的样子：</p>
+
+<p><img src="understanding-flexbox-76.png" alt=""></p>
+
+<p>如下是方向变化之后的样子：</p>
+
+<p><img src="understanding-flexbox-77.png" alt=""></p>
+
+<p>出啥事了？</p>
+
+<p>现在文字是以日语风格写的：<strong>沿Main-Axis从上到下</strong>。</p>
+
+<p>我很乐意指出，你会发现一些有趣的事情。</p>
+
+<p>你会看到项目的宽度填满了空间，对吧？</p>
+
+<p>如果在之前要变成这样子，得处理 <code>flex-basis</code> 以及 <code>flex-grow</code> 属性。</p>
+
+<p>下面来看看这些会如何影响新的布局。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-basis</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">100</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>下面是你会得到的。</p>
+
+<p><img src="understanding-flexbox-78.png" alt=""></p>
+
+<p>什么？高度是被影响了，但是宽度没有啊？我之前说过，<code>flex-basis</code> 属性定义每个Flex项目的初始宽度。</p>
+
+<p>我是错的，或者这样说更好：我是用英语来思考。下面我们姑且切换到用日语思考。并且总是得有宽度。</p>
+
+<p>在切换 <code>flex-direction</code> 时，请注意，影响Main-Axis的每一个属性现在会影响新Main-Axis。像 <code>flex-basis</code> 这种会影响Main-Axis上Flex项目宽度的属性，现在会影响项目的高度，而不是宽度。</p>
+
+<p>方向已经被切换了！</p>
+
+<p>所以，即使你使用 <code>flex-grow</code> 属性，它也是影响高度。本质上，每个作用于横向轴（即Main-Axis）上的 flex 属性，现在都会作用于纵向上的新Main-Axis。它只是在方向上的一个切换。</p>
+
+<p>这里再来一个例子。我发誓在这个例子之后你会有更好的理解。减少之前看到过的Flex项目的宽度，它们就不再填满整个空间了：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">width</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">200</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><img src="understanding-flexbox-79.png" alt=""></p>
+
+<p>如果想把列表项移到屏幕中间该怎么办呢？</p>
+
+<p>在英语中，这是你到目前为止处理弹性容器的方式。就是说， 把Flex项目移到Main-Axis的中间 。</p>
+
+<p>所以，你会用 <code>justify-content: center</code>。但是这样做不起作用。因为方向变了，中心是沿着Cross-Axis，而不是Main-Axis。</p>
+
+<p>再来看看：</p>
+
+<p><img src="understanding-flexbox-80.jpg" alt=""></p>
+
+<p>所以请用日语文字来思考。<strong>Main-Axis是从上到下，你不需要这样。Cross-Axis是从左到右。貌似是你所要的</strong>。</p>
+
+<p>你需要 把Flex项目移到Cross-Axis的中间 。这里想起哪个Flex容器属性了么？</p>
+
+<p>是的，<code>align-items</code> 属性。<code>align-items</code> 属性处理Cross-Axis上的对齐。</p>
+
+<p>所以要把这些项目移到中间，得这样做：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">align-items</span></span></span><span class="rule">:<span class="value"><span class="value"> center;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>瞧瞧！Flex项目已经居中了吧。</p>
+
+<p><img src="understanding-flexbox-81.png" alt=""></p>
+
+<p>是有点悬乎，我知道。如果需要，就再复习一遍好了。在研究Flexbox时，我发现很多 CSS 书都略过了这一部分。</p>
+
+<p>用日语文字来思考一下会有很大帮助。我们有必要了解，所有Flexbox属性都是基于合适的 <code>flex-direction</code> 起作用。</p>
+
+<p>相信你又学到了一点新东西。我很开心解释这些，希望你也很开心。</p>
+
+<h2>我的天啦，弹性盒解决了那问题了？</h2>
+
+<p><img src="understanding-flexbox-82.jpeg" alt=""></p>
+
+<p>很多设计师用 CSS 时遇到的一些典型问题已经被Flexbox轻而易举解决了。</p>
+
+<p><a href="http://philipwalton.com/" target="_blank">@Philip Walton</a> 在其 <a href="http://github.com/philipwalton/solved-by-flexbox" target="_blank">Flexbox解决了的问题这个项目</a> 列出了 6 种典型的问题（到本文编写时）。</p>
+
+<p>他全面讨论了之前用 CSS 的限制，以及目前Flexbox提供的解决方案。建议在完成本文后看一看。</p>
+
+<p>在接下来的实践环节中，在开始用弹性盒创建一个音乐应用布局时，我会解释他提出的一些概念。</p>
+
+<h3>Flex 不兼容浏览器的坑</h3>
+
+<p>如果你不是在梦中写 CSS 的那一类人的话，就可能想看看这个 <a href="http://github.com/philipwalton/flexbugs" target="_blank">Github 仓库</a>。</p>
+
+<p>有些比我聪明的人在这里维护了一个Flexbox的 bug 列表及其变通方法。当有些事情没有按预期起作用时，这是我看的第一个地方。我也会在后面的实践环节中带你踩踩一些显眼的坑。</p>
+
+<blockquote>
+  <p><a href="http://philipwalton.com/" target="_blank">@Philip Walton</a>早前专门写了一篇有关于解决Flexbox跨浏览器兼容Bug的文章《<a href="http://philipwalton.com/articles/normalizing-cross-browser-flexbox-bugs/" target="_blank">Normalizing Cross-browser Flexbox Bugs</a>》，对应的译文可以<a href="http://www.w3cplus.com/css3/normalizing-cross-browser-flexbox-bugs.html" target="_blank">点击这里阅读</a>。</p>
+</blockquote>
+
+<h2>用弹性盒创建一个音乐应用的布局</h2>
+
+<p><img src="understanding-flexbox-83.jpeg" alt=""></p>
+
+<p>在学习完了乏味严谨的基础知识之后，该有一些有趣的项目了。是时候玩玩实际的例子，并把刚获得的Flexbox技能用上去。</p>
+
+<p>想出一个好项目花了我好几天。由于缺乏创造性的选择，我想出了一个猫玩的音乐应用布局。我称它为 catty music 。</p>
+
+<p>也许到了 2036 年，我们就能让猫在火星上的某个地方唱摇滚。如下是完成了的布局看起来的样子，并且完全是用Flexbox布局的。</p>
+
+<p><img src="understanding-flexbox-85.png" alt=""></p>
+
+<p>可以在线上看，在<a href="http://output.jsbin.com/wubudog/" target="_blank">这里</a>。</p>
+
+<p>如果在移动设备上看，外观会稍微有点不同。这是在本文响应式设计一节中要解决的问题。</p>
+
+<p>不过，有件事我得坦白。我已经做了许多人认为是错误的事情。我完全用Flexbox创建整个布局。</p>
+
+<p>出于多种理由，这样做可能并非那么理想。但是在这种情况下是故意的。我只是想用一个项目，向你展示所有可以用Flexbox做的事情。</p>
+
+<p>如果你好奇什么时候使用Flexbox是对的，什么时候是错的，那你可以读读我写的一篇文章。</p>
+
+<blockquote>
+  <p>Flexbox 很棒，不过它在这里不受欢迎 <a href="http://medium.com/@ohansemmanuel/flexbox-is-awesome-but-its-not-welcome-here-a90601c292b6" target="_blank">Flexbox 毋庸置疑是我们大多数人遇到的最好的东西（如果你写 CSS 的话），不过它是不是适合所有情况呢…</a></p>
+</blockquote>
+
+<p>这里，我心里的石头终于落地了。现在我相信在读完这个之后，没人会对我大呼小叫了。</p>
+
+<p>Catty Musci 中的一切都是用Flexbox布局， <strong>这是故意尽可能地炫技</strong>。</p>
+
+<p>所以下面我们开始把这个玩意建成！对于任何稍微合理一点的项目来说，有点规划对避免效率低下是有帮助的。就让我带你看看创建 Catty Music 布局的规划方法。</p>
+
+<h3>从哪里开始？</h3>
+
+<p>只要用Flexbox创建布局，就应该从找出布局中哪一个部分会作为Flex容器开始。然后才可以使用Flexbox提供的强大对齐属性。</p>
+
+<h3>分析</h3>
+
+<p>你可以让整个包含体作为Flex容器（下图中被包含在红色边框内的部分），并把布局的其它部分分成Flex项目（<code>Item 1</code> 和 <code>Item 2</code>）。</p>
+
+<p><img src="understanding-flexbox-84.jpeg" alt=""></p>
+
+<p>这样做完全说得通，让 <code>Item 1</code> 包含布局中除了脚注以外的每个部分。脚注部分用来包含音乐控制按钮。</p>
+
+<p>你知道Flex项目也可以成为Flex容器吗？是的，是可能的！</p>
+
+<p>你想嵌套多深就嵌套多深（不过理智的做法是保持一个合理的水平）。于是，根据这个新启示就有了这个...</p>
+
+<p><code>Item 1</code>（第一个Flex项目）也可以弄成一个Flex容器。然后，侧边栏（<code>Item 1b</code>）和主栏目（<code>Item 1a</code>）就成了 <code>Item 1</code> 的Flex项目。</p>
+
+<p><img src="understanding-flexbox-86.jpeg" alt=""></p>
+
+<p>你依然与我同在，对吧？像这样拆分布局，会给你一个相当不错的心理模型来处理。</p>
+
+<p>在用Flexbox开始创建更为复杂的布局时，你会看到这有多重要。当然，你并不需要一个像上面那样高大上的图像。在纸上画一个简单的草图就足够了。</p>
+
+<p>记得我说过可以想嵌套多深就嵌套多深吧？貌似这里还可以再来一个嵌套。</p>
+
+<p>看看上面的主栏目（<code>Item 1a</code>）。它也可以变成一个Flex容器，以容纳如下高亮度的部分：<code>Item 1a — A</code> 和 <code>Item 1a — B</code>。</p>
+
+<p><img src="understanding-flexbox-87.jpeg" alt=""></p>
+
+<p>可能你会决定不把主栏目（<code>Item 1a</code>）变成Flex容器，只在其内部放入两个 <code>div</code> 来容纳高亮度部分。</p>
+
+<p>是的，这样做没问题，因为 “Item 1a — A” 和 “Item 1a — B” 是垂直堆放的。</p>
+
+<p>默认情况下，<code>div</code> 是垂直堆放的。这是盒模型的工作原理。如果选择把主栏目变成一个Flex容器，就有了随时可你供调遣的强大对齐属性。</p>
+
+<p>Flexbox中的 Flex 是指弹性、灵活。Flex容器默认是弹性的，跟响应式有点类似。这也许是使用Flex容器，而不是普通 <code>div</code> 的另一个原因。不过，这取决于实际情况。</p>
+
+<p>在你创建 Catty Music 时我会论及一些事情事情。你现在应该去写点代码了。</p>
+
+<h3>HTML结构</h3>
+
+<p>从如下的基础 HTML 设置开始。</p>
+
+<pre class="xml"><code class="xml"><span class="doctype"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">html</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">head</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">title</span></span>&gt;</span></span>Catty Music<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">title</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">head</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">body</span></span>&gt;</span></span>
+
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">main</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">main</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--用来包含应用的主栏目--&gt;</span></span>
+
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">footer</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">footer</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--用来包含音乐控制按钮和歌曲细节--&gt;</span></span>
+
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">body</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">html</span></span>&gt;</span></span>
+</code></pre>
+
+<p>然后为它设置样式：</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">html</span></span>,
+<span class="tag"><span class="tag">body</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">height</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">100</span></span>%;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*显式设置这，是很重要的*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">body</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*flex 超能力被激活了！ */</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> column;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*垂直而不是水平堆放弹性项目（主栏目和脚注元素）*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>使用Flexbox的第一个步骤就是确定一个Flex容器。</p>
+
+<p>这正好是上面代码所做的。它将 <code>body</code> 元素的 <code>display</code> 属性设置为 <code>flex</code>。现在有了一个Flex容器，即 <code>body</code> 元素。</p>
+
+<p>Flex项目也被定义了（<code>item 1</code> 和 <code>item 2</code>）：跟前面分析中所做的一样。</p>
+
+<p><strong>注意</strong>，如果你对这个概念还是有点模糊，就应该再看看我在之前开始分析时展示的图像。</p>
+
+<p>盯着最后的图像，你应该让弹性项目工作起来。</p>
+
+<p>让脚注吸附在底部。让放音乐控制的脚注吸附在页面的底部，同时让主栏目填满剩余空间。</p>
+
+<p>你怎么实现？</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">main</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span> <span class="number"><span class="number">0</span></span> auto;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*填满剩余空间*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">footer</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">90</span></span>px;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*不会放大或者收缩 - 只会固定在 90px 高度。*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>请看上面列出的代码中的注释。多亏了 <code>flex-grow</code> 属性，它让主栏目填满整个空间相对很容易。只需将 <code>flex-grow</code> 属性的值设置为 <code>1</code> 即可。还应该把 <code>flex-shrink</code> 属性设置为 <code>0</code>。为什么呢？</p>
+
+<p>因为 <code>flex-direction</code> 没有改变，所以原因也许不很明显。</p>
+
+<p>在有些浏览器中，会有一个 bug，允许Flex项目收缩后比其内容尺寸小。这是个很古怪的行为。</p>
+
+<p>解决这个 bug 的变通方案是把 <code>flex-shrink</code> 的属性值设置为 <code>0</code>，而不是默认值 <code>1</code>，同时，把 <code>flex-basis</code> 属性设置为 <code>auto</code>。</p>
+
+<p>就像是说：请自动计算Flex项目的大小，但是不要收缩。有了这个简写值，就可以得到Flex项目的默认行为。</p>
+
+<p>Flex项目会随着浏览器缩放那个收缩。缩放不是基于 <code>flex-shrink</code>属性，而是基于自动对Flex项目的宽度重新计算（<code>flex-basis: auto</code>）。</p>
+
+<p>这会导致Flex项目至少与它的宽度或者高度（如果声明了）或者默认内容尺寸一样大。请不要忘记我在分析 <code>flex</code> 简写属性时设立的原则。后面会有更多简写的东西。</p>
+
+<p>现在事情汇集到一起了，下面我们放点样式来定义间距和颜色。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">body</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> column;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#fff</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-family</span></span></span><span class="rule">:<span class="value"><span class="value"> Lato, sans-serif;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#222</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0.9</span></span>em;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">footer</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">90</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">10</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#fff</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="function"><span class="function">rgba(<span class="number"><span class="number">61</span></span>, <span class="number"><span class="number">100</span></span>, <span class="number"><span class="number">158</span></span>, .<span class="number"><span class="number">9</span></span>)</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>依然没有啥奇迹。你将看到的效果如下图所示：</p>
+
+<p><img src="understanding-flexbox-88.png" alt=""></p>
+
+<p>看看事情是如何开始初具规模，你会让它变得更好一点。</p>
+
+<h3>固定侧边栏</h3>
+
+<p>如果你是跟着写代码，就更新一下你的 HTML 文档。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">main</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">aside</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--这代表侧边栏，其中包含了来自 font-awesome 的图标集--&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-bars"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-home"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-search"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-volume-up"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-user"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-spotify"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-cog"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-soundcloud"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">aside</span></span>&gt;</span></span>
+
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">section</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"content"</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--这一部分会容纳除侧边栏以外的所有东西--&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">section</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">main</span></span>&gt;</span></span>
+</code></pre>
+
+<p>上面的代码列表已经解释的很清楚了。</p>
+
+<p>至于图标设置，我用了热门的 <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> 库。这样用你想要的图标就简单到只需添加一个 CSS 类即可。这就是我在 <code>aside</code> 标记中所做的事情。</p>
+
+<p>正如之前解释过的，上面的 <code>main</code> 部分也会成为一个Flex容器。侧边栏（用 <code>aside</code> 标记表示） 以及  <code>section</code> 会成为Flex项目。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">main</span></span> <span class="rules"><span class="rules">{
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span> <span class="number"><span class="number">0</span></span> auto;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/* 变成一个弹性项目*/</span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*只包含这一行，现在就有一个弹性容器，带有弹性项目：侧边栏和主内容区*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>很好，越来越有意思了，嘿嘿。</p>
+
+<p>现在，主栏目是一个Flex容器了。下面我们来处理它的Flex项目之一，侧边栏。跟让脚注吸附到页面底部一样，你还会想让侧边栏吸附到页面的左边。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">aside</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">40</span></span>px;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*不会放大或者缩小。固定在 40px*/</span></span> 
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>侧边栏应该让图标垂直堆放。可以让侧边栏变成Flex容器，给它设一个 <code>flex-direction</code>，让所有图标垂直堆放。然后应用一个对齐属性，让图标就位。</p>
+
+<p>在下面的代码列表中，看看你可能会怎么做。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">aside</span></span> <span class="rules"><span class="rules">{
+    <span class="comment"><span class="comment">/* ...  */</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*现在也是一个弹性容器*/</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> column;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*垂直堆放图标*/</span></span>
+
+    <span class="comment"><span class="comment">/*因为方向改变了，如下在垂直方向上起作用。*/</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">justify-content</span></span></span><span class="rule">:<span class="value"><span class="value"> space-around;</span></span></span><span class="value"></span></span>
+
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">align-items</span></span></span><span class="rule">:<span class="value"><span class="value"> center;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*方向改变了！这条影响的是水平方向。将图标居中*/</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#f2f2f2</span></span>;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*让我变漂亮*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">aside</span></span> <span class="tag"><span class="tag">i</span></span><span class="class"><span class="class">.fa</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0.9</span></span>em;</span></span></span><span class="value"></span></span>  <span class="comment"><span class="comment">/*图标的字体大小*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>我已经在上面的代码中加了很多注释，现在看看布局是如何漂亮。很干净，只有几行代码。合情合理的代码，没有乱七八糟的招数。</p>
+
+<p><img src="understanding-flexbox-89.png" alt=""></p>
+
+<p>主内容区目前是空的。不要忘记它是第二个列表项，侧边栏是第一个。给这里放一下东西。给主内容区添加内容你可以再看看完工的项目，这样就不会忘记接下来要发生的事情。</p>
+
+<p>更重要的是，这能帮助你理解下面的代码。更新 HTML 文档，在 <code>.content</code> 部分添加如下标记：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">section</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"content"</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--这一区是空的，用内容填充它--&gt;</span></span>
+
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"music-head"</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--第一个列表项：包含音乐详情--&gt;</span></span>
+
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">img</span></span> <span class="attribute"><span class="attribute">src</span></span>=<span class="value"><span class="value">"images/cattyboard.jpg"</span></span> /&gt;</span></span><span class="comment"><span class="comment">&lt;!--专辑封面--&gt;</span></span>
+
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">section</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"catty-music"</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--专辑的其它细节--&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>CattyBoard Top 100 Single Charts (11.06.36)<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>Unknown Artist<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>2016 . Charts . 100 songs<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--Music controls--&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-play"</span></span>&gt;</span></span>Play all<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-plus"</span></span>&gt;</span></span>Add to<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">i</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"fa fa-ellipsis-h"</span></span>&gt;</span></span>More<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">i</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">section</span></span>&gt;</span></span>
+
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span> <span class="comment"><span class="comment">&lt;!--end .music-head--&gt;</span></span>
+
+    <span class="comment"><span class="comment">&lt;!--第二个列表项：包含专辑中的歌曲列表--&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"music-list"</span></span>&gt;</span></span>  
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>1. One Dance<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>Crake feat CatKid &amp; Cyla<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>2:54<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"catty-cloud"</span></span>&gt;</span></span>CATTY CLOUD SYNC<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>2. Panda<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>Cattee<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>4:06<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"catty-cloud"</span></span>&gt;</span></span>CATTY CLOUD SYNC<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>3. Can't Stop the Feeling!<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>Catin Cimberlake<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>3:56<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"catty-cloud"</span></span>&gt;</span></span>CATTY CLOUD SYNC<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>4. Work From Home<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>Cat Harmony feat Colla<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>3:34<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"catty-cloud"</span></span>&gt;</span></span>CATTY CLOUD SYNC<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">section</span></span>&gt;</span></span>
+</code></pre>
+
+<p>嗯，我比上次添加了更多的东西，不过很简单。我用一个 <code>div</code> 填充空内容部分，这个 <code>div</code> 用来容纳 catty 专辑的封面和其他细节。<code>ul</code> 容纳专辑的歌曲列表。列表中用单独的段落来容纳歌曲标题、艺术家、时长、"_catty cloud sync“。</p>
+
+<p>那么你打算如何设置样式呢？看看我怎么做的？</p>
+
+<p>首先，应该让 <code>.content</code> 部分成为Flex容器。</p>
+
+<pre class="css"><code class="css"><span class="class"><span class="class">.content</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span> <span class="number"><span class="number">0</span></span> auto;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*这确保本区伸展到填满可用空间*/</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> column;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>还应该处理它的Flex项目：</p>
+
+<pre class="css"><code class="css"><span class="class"><span class="class">.music-head</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">280</span></span>px;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*相同的备忘，不要伸展或收缩 - 固定为 280px*/</span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span>  
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">40</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#4e4e4e</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="class"><span class="class">.music-list</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span> <span class="number"><span class="number">0</span></span> auto;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">list-style-type</span></span></span><span class="rule">:<span class="value"><span class="value"> none;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">5</span></span>px <span class="number"><span class="number">10</span></span>px <span class="number"><span class="number">0</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p><code>.music-head</code> 容纳专辑封面以及其它专辑细节。相同的备忘录，不要伸展或者收缩，保持高度为 <code>280px</code>。高度？没有宽度？是的！</p>
+
+<p>父元素已经切换了 flex-direction。随后需要让它变成一个弹性容器，所以写上 <code>display: flex</code>。<code>.music-list</code> 容纳歌曲列表，填满与上面的 <code>.music-head</code> 共享的剩余可用空间。</p>
+
+<p>这依然没让人觉得有多漂亮，不过来吧，如果你还跟着，你做的很不错了。赞一下。</p>
+
+<p><img src="understanding-flexbox-90.png" alt=""></p>
+
+<p>这里有几个问题。</p>
+
+<h4>歌曲列表看起来很糟糕</h4>
+
+<p><img src="understanding-flexbox-91.png" alt=""></p>
+
+<h4>包含音乐封面的部分有真的很难看的文本</h4>
+
+<p><img src="understanding-flexbox-92.png" alt=""></p>
+
+<p>我会再次来你解决这些问题。</p>
+
+<p>下面是我提出的解决方案。</p>
+
+<h4>处理歌曲列表</h4>
+
+<p>每个歌曲列表包含 4 个段落，歌名、艺术家、时长和 “catty cloud sync”。</p>
+
+<p>一定有办法让所有这些放在一行，每个段落占据该行相等空间。用Flexbox来搞定！这里的概念与很多栅格系统中用的一样。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*段落现在显示在一行上*/</span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">20</span></span>px;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*留点呼吸空间*/</span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">min-height</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">50</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">li</span></span> <span class="tag"><span class="tag">p</span></span> <span class="rules"><span class="rules">{
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">25</span></span>%;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/*这是甜面酱*/</span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>看到段落会发生什么了吗？</p>
+
+<pre class="http"><code class="http"><span class="attribute"><span class="attribute">flex</span></span>: <span class="string"><span class="string">0 0 25%;</span></span>
+</code></pre>
+
+<p><strong>“不要伸展或者收缩，不过每个段落应该占据 <code>25%</code> 的可用空间”</strong> 。段落所占空间是相等的。</p>
+
+<h4>使用这种技术</h4>
+
+<p>这种技术是很有用的。可以用它来创建不相等的内容区。比如，两栏视图。</p>
+
+<p>一个栏目可以占可用空间的 <code>60%</code>，另一个占 <code>40%</code>：</p>
+
+<pre class="perl"><code class="perl">.first-section: <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">60</span></span><span class="variable"><span class="variable">%;</span></span>
+.second-section: <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">40</span></span><span class="variable"><span class="variable">%;</span></span>
+</code></pre>
+
+<p>可以用这种技术创建栅格系统。你将看到的效果如下：</p>
+
+<p><img src="understanding-flexbox-93.png" alt=""></p>
+
+<p>给列表交替的颜色，也处理一下 “catty cloud sync” 标签。</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">li</span></span> <span class="tag"><span class="tag">span</span></span><span class="class"><span class="class">.catty-cloud</span></span> <span class="rules"><span class="rules">{
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">border</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>px solid black;</span></span></span><span class="value"></span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0.6</span></span>em;</span></span></span><span class="value"></span></span>
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">3</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">li</span></span><span class="pseudo"><span class="pseudo">:nth-child(2n)</span></span> <span class="rules"><span class="rules">{
+  <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#f2f2f2</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>所以，你征服它了，开始更好理解Flexbox方言了。这是你现在应该得到的东西了。</p>
+
+<p><img src="understanding-flexbox-94.png" alt=""></p>
+
+<p>现在要处理第二个问题了。让相册详情文本看着更好看点。下面真是很简单的事情。</p>
+
+<pre class="css"><code class="css"><span class="class"><span class="class">.catty-music</span></span><span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span> <span class="number"><span class="number">0</span></span> auto;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> column;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-weight</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">300</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#fff</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding-left</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">50</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="class"><span class="class">.catty-music</span></span> <span class="tag"><span class="tag">div</span></span><span class="pseudo"><span class="pseudo">:nth-child(1)</span></span><span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin-bottom</span></span></span><span class="rule">:<span class="value"><span class="value"> auto;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="class"><span class="class">.catty-music</span></span> <span class="tag"><span class="tag">div</span></span><span class="pseudo"><span class="pseudo">:nth-child(2)</span></span><span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin-top</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="class"><span class="class">.catty-music</span></span> <span class="tag"><span class="tag">div</span></span><span class="pseudo"><span class="pseudo">:nth-child(2)</span></span> <span class="tag"><span class="tag">i</span></span><span class="class"><span class="class">.fa</span></span><span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0.9</span></span>em;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0.7</span></span>em;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-weight</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">300</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+<span class="class"><span class="class">.catty-music</span></span> <span class="tag"><span class="tag">div</span></span><span class="pseudo"><span class="pseudo">:nth-child(1)</span></span> <span class="tag"><span class="tag">p</span></span><span class="pseudo"><span class="pseudo">:first-child</span></span><span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1.8</span></span>em;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">10</span></span>px;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="class"><span class="class">.catty-music</span></span> <span class="tag"><span class="tag">div</span></span><span class="pseudo"><span class="pseudo">:nth-child(1)</span></span> <span class="tag"><span class="tag">p</span></span><span class="pseudo"><span class="pseudo">:not(</span></span><span class="pseudo"><span class="pseudo">:first-child)</span></span><span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0.9</span></span>em;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">2</span></span>px <span class="number"><span class="number">0</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>你做到了，而且做的相当不错。</p>
+
+<p><img src="understanding-flexbox-95.png" alt=""></p>
+
+<h3>一个快速练习</h3>
+
+<p>我留下脚注部分给你作为练习。试着自己解决脚注。只需采用相同的技术。你知道你能搞定吗？如果卡住了，可以查看 Catty Music 的完整源代码。你也可以把整个脚注分成Flex项目，从这里开始。</p>
+
+<p><img src="understanding-flexbox-96.jpeg" alt=""></p>
+
+<p>简直不相信你到了这一步。下面，你会看到Flexbox是如何有助于响应式设计。</p>
+
+<h2>Flexbox用于响应式设计</h2>
+
+<p><img src="understanding-flexbox-97.jpeg" alt=""></p>
+
+<p>已经有不少关于响应式设计的书，有不少书还不错。</p>
+
+<p>因为本文专注于Flexbox，所以我不会深入响应式设计。</p>
+
+<blockquote>
+  <p>如果你从未接触过任何关于响应式设计相关的知识，<a href="http://www.w3cplus.com/responsive" target="_blank">建议你点击这里进行了解</a>。</p>
+</blockquote>
+
+<p>像我之前在某处说过的那样，用Flexbox，我们确实得到了一些开箱即用的响应性。</p>
+
+<p>Flexbox就像 弹性的盒子 。不过，可以通过媒体查询搞定不同的屏幕尺寸，然后改变弹性行为。</p>
+
+<p>如下是一个示例。我们又用简单无序列表来帮忙。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Home<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>About<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Contact<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Register<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span>&gt;</span></span>Login<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+  <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+</code></pre>
+
+<p>并且设置点样式...</p>
+
+<pre class="css"><code class="css"><span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">list-style-type</span></span></span><span class="rule">:<span class="value"><span class="value"> none;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">display</span></span></span><span class="rule">:<span class="value"><span class="value"> flex;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">border</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>px solid <span class="hexcolor"><span class="hexcolor">#4e4e4e</span></span>;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+
+<span class="tag"><span class="tag">li</span></span> <span class="rules"><span class="rules">{
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">0</span></span> <span class="number"><span class="number">0</span></span> auto;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">padding</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">10</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">margin</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">10</span></span>px;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">background-color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#8cacea</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">color</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="hexcolor"><span class="hexcolor">#fff</span></span>;</span></span></span><span class="value"></span></span>
+    <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">font-size</span></span></span><span class="rule">:<span class="value"><span class="value"> <span class="number"><span class="number">1</span></span>em;</span></span></span><span class="value"></span></span>
+<span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+</code></pre>
+
+<p>现在你已经是Flexbox专家了，所以你知道是咋回事。</p>
+
+<p>如下是导航栏的样子。</p>
+
+<p><img src="understanding-flexbox-98.png" alt=""></p>
+
+<p>这对于桌面以及平板电脑可能还挺酷，不过在某些屏幕尺寸上，就特别难看。在移动设备上，你会想让导航条目垂直堆放。然后媒体查询就登堂入室了。</p>
+
+<pre class="css"><code class="css"><span class="at_rule"><span class="at_rule">@<span class="keyword"><span class="keyword">media</span></span> screen and (max-width: <span class="number"><span class="number">769</span></span>px) </span></span>{
+    <span class="comment"><span class="comment">/* 这里的代码只适用于宽度小于 769px 的屏幕设备*/</span></span>
+    <span class="tag"><span class="tag">ul</span></span> <span class="rules"><span class="rules">{
+        <span class="rule"><span class="attribute"><span class="rule"><span class="attribute">flex-direction</span></span></span><span class="rule">:<span class="value"><span class="value"> column;</span></span></span><span class="value"></span></span> <span class="comment"><span class="comment">/* 在更小的设备上，切换方向*/</span></span>
+    <span class="rule"><span class="rule">}</span></span></span><span class="rule"></span></span>
+}
+</code></pre>
+
+<p><img src="understanding-flexbox-99.png" alt=""></p>
+
+<p>如果在这之前，你对响应式设计还懂那么点，那就太棒了。把Flexbox纳入你已有的知识好了。</p>
+
+<p>顺便说一句，我假设你理解媒体查询是什么。如果不理解的话，看看下面的简介。</p>
+
+<h3>媒体查询</h3>
+
+<p>媒体查询是响应式设计的核心，让你可以以特定屏幕尺寸为目标，单独指定运行在该设备上的代码。</p>
+
+<p>使用媒体查询最流行的形式是 <code>@media</code> 规则。</p>
+
+<p>它看起来是这样的：</p>
+
+<pre class="ruby"><code class="ruby"><span class="variable"><span class="variable">@media</span></span> screen <span class="keyword"><span class="keyword">and</span></span> (max-<span class="symbol"><span class="symbol">width:</span></span> <span class="number"><span class="number">300</span></span>px) {
+  <span class="regexp"><span class="regexp">/*在这个代码块中写 CSS*/</span></span>
+}
+</code></pre>
+
+<p>看着这段代码，猜都可以猜到它的作用。</p>
+
+<p>"对于最大宽度为 <code>300px</code> 的屏幕设备… 做这做那"</p>
+
+<p>在该代码块中的任何样式都将适用于匹配表达式的设备，即 “<code>screen and (max-width: 300px)</code>” 。</p>
+
+<p>我猜这有助于消除一些疑惑。</p>
+
+<h3>快速练习</h3>
+
+<p>Catty music 在移动设备上的显示有所不同。这可是个好消息。更棒的是你应该试着重新创建它。</p>
+
+<p><img src="understanding-flexbox-100.png" alt=""></p>
+
+<p>如果你遇到了难题，本教程代码库的链接在下一节。解决方案也在仓库中。快到最后了！在总结部分，我将讨论浏览器支持、有用的链接和帮助你上手的资源。</p>
+
+<h2>总结</h2>
+
+<p><img src="understanding-flexbox-101.jpeg" alt=""></p>
+
+<p>你已经学习了如何使用Flex容器和Flex项目的对齐属性。我引导你理解了绝对和相对弹性、自动外边距对齐以及切换弹性方向。你还有机会将Flexbox技能应用到创建 Catty Music 应用，然后我也提到了响应式设计。</p>
+
+<p>这确实是一段漫长的旅程。</p>
+
+<p>现在，我会向你解释一些最终的概念。用一些我认为你会发现很有用的资源和链接帮助你。</p>
+
+<h3>Flexbox的浏览器支持</h3>
+
+<p>这是当倾向于在生产中使用Flexbox时，被问到的一个常见的问题。这问题我也没法很好回答，不过 <a href="http://caniuse.com/" target="_blank">caniuse</a> 网站能很好处理这个问题。</p>
+
+<p>如下是一个来自 caniuse 的屏幕截图，浏览器支持很棒。<a href="http://caniuse.com/#feat=flexbox" target="_blank">你可以在这里自己看</a>。</p>
+
+<p><img src="understanding-flexbox-102.png" alt=""></p>
+
+<p>在我职业生涯早期，我浏览过 caniuse 很多次，依然没法掌握表示的数据是什么意思。所以这里有一个简单的解释。</p>
+
+<p>caniuse 网站的右下角是一个图例。</p>
+
+<p><img src="understanding-flexbox-103.png" alt=""></p>
+
+<p>看看上面的图像，或者就访问一下网站，找到图例，就明白了。实际上就是这么回事。</p>
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+</ul>
+
+<blockquote>
+  <p>本文根据<a href="http://medium.freecodecamp.com/@ohansemmanuel?source=post_header_lockup" target="_blank">@Ohans Emmanuel</a>的《<a href="http://medium.freecodecamp.com/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af#.pr6cltk9j" target="_blank">Understanding Flexbox: Everything you need to know</a>》所译，整个译文带有我们自己的理解与思想，如果译得不好或有不对之处还请同行朋友指点。如需转载此译文，需注明英文出处:<a href="http://medium.freecodecamp.com/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af#.pr6cltk9j" target="_blank">https://medium.freecodecamp.com/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af#.pr6cltk9j</a>。</p>
+</blockquote>
+
+
+
+
+</div></div></div>  </div>
+
+  
+   
+    
+
+          <div id="node_bottom">
+        <div id="block-block-24" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-bottom-ad" style="margin: 0px 0px 10px; padding: 0px; border: 0px none;">
+	<div class="ct-ad-article">
+		<div class="bsap">
+			<a href="https://cn.100offer.com/how-it-works/?utm_source=w3cplus&amp;utm_medium=display&amp;utm_campaign=w3cplus_20170821&amp;utm_content=ji_hui_hen_duo&amp;campaign_code=w3cplus" target="_blank"></a>
+		</div>
+	</div>
+</div>
+<div class="ct-ad-article-wrapper" id="content-bottom-ad" style="margin: 0px 0px 10px; padding: 0px; border: 0px none;">
+	<div class="ct-ad-article">
+		<div class="bsap">
+			<a href="http://fe.apelearn.com/?utm_source=w3cplus&amp;utm_medium=banner&amp;utm_campaign=w3cplus" target="_blank"></a>
+		</div>
+	</div>
+</div>
+  </div>
+</div>
+<div id="block-disqus-disqus-comments" class="block block-disqus">
+
+    
+  <div class="content">
+    <div id="disqus_thread"><noscript><p><a href="http://w3cplus.disqus.com/?url=https%3A%2F%2Fwww.w3cplus.com%2Fcss3%2Funderstanding-flexbox-everything-you-need-to-know.html">View the discussion thread.</a></p></noscript></div>  </div>
+</div>
+      </div>
+        
+
+</div>  </div>
+</div>
+  </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    
+          <div id="sidebar-second" class="col-extra">
+        <!-- <script type="text/javascript">document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E%3Cscript charset="utf-8" src="//rp.baidu.com/rp3w/3w.js?sid=10994702955876242907') + '&t=' + (Math.ceil(new Date()/3600000)) + unescape('"%3E%3C/script%3E'));</script> -->
+          <div class="region region-sidebar-second">
+    <div id="block-custom-search-blocks-1" class="block block-custom-search-blocks">
+
+    
+  <div class="content">
+      </div>
+</div>
+
+
+
+  </div>
+      </div>
+    
+
+  </div>
+</div>
+
+   
+
+   
+
+<div id="totop" style="position: fixed; bottom: 50px; right: 15px; cursor: pointer; z-index: 999999; display: block; opacity: 1;">
+    <a title="返回顶部">返回顶部</a>
+</div>
+
+  <script type="text/javascript">/* Code removed by ScrapBook */</script>
+<script type="text/javascript" src="about:blank"></script>
+  
+  
+  
+
+
+
+
+<weel style="visibility: hidden; opacity: 0;" id="weel__float-action-button" data-check-aim="false" data-api-src="google" data-lang-from="en" data-lang-to="zh"><weel id="weel__float-action-button--container"><weel id="weel__float-action-button--icon"></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-panel"><weel id="weel__float-action-panel--container"><weel id="weel__float-action-panel--output-stream"><weel id="weel__float-action-panel--output-stream-result"><weel id="weel__float-action-panel--output-stream-result-word"><weel id="weel__float-action-panel--output-stream-phonetic"><weel id="weel__float-action-panel--i-voice"></weel><weel id="weel__float-action-panel--output-stream-phonetic-plain">&nbsp;</weel></weel><weel id="weel__float-action-panel--output-stream-explain"><weel id="weel__float-action-panel--i-copy"></weel><weel id="weel__float-action-panel--output-stream-explain-plain">&nbsp;</weel><textarea></textarea><weel id="weel__float-action-panel--output-stream-explain-detail">&nbsp;</weel></weel></weel></weel></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-button" data-check-aim="false" data-api-src="google" data-lang-from="en" data-lang-to="zh"><weel id="weel__float-action-button--container"><weel id="weel__float-action-button--icon"></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-panel"><weel id="weel__float-action-panel--container"><weel id="weel__float-action-panel--output-stream"><weel id="weel__float-action-panel--output-stream-result"><weel id="weel__float-action-panel--output-stream-result-word"><weel id="weel__float-action-panel--output-stream-phonetic"><weel id="weel__float-action-panel--i-voice"></weel><weel id="weel__float-action-panel--output-stream-phonetic-plain">&nbsp;</weel></weel><weel id="weel__float-action-panel--output-stream-explain"><weel id="weel__float-action-panel--i-copy"></weel><weel id="weel__float-action-panel--output-stream-explain-plain">&nbsp;</weel><textarea></textarea><weel id="weel__float-action-panel--output-stream-explain-detail">&nbsp;</weel></weel></weel></weel></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-button" data-check-aim="false" data-api-src="google" data-lang-from="en" data-lang-to="zh"><weel id="weel__float-action-button--container"><weel id="weel__float-action-button--icon"></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-panel"><weel id="weel__float-action-panel--container"><weel id="weel__float-action-panel--output-stream"><weel id="weel__float-action-panel--output-stream-result"><weel id="weel__float-action-panel--output-stream-result-word"><weel id="weel__float-action-panel--output-stream-phonetic"><weel id="weel__float-action-panel--i-voice"></weel><weel id="weel__float-action-panel--output-stream-phonetic-plain">&nbsp;</weel></weel><weel id="weel__float-action-panel--output-stream-explain"><weel id="weel__float-action-panel--i-copy"></weel><weel id="weel__float-action-panel--output-stream-explain-plain">&nbsp;</weel><textarea></textarea><weel id="weel__float-action-panel--output-stream-explain-detail">&nbsp;</weel></weel></weel></weel></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-button" data-check-aim="false" data-api-src="google" data-lang-from="en" data-lang-to="zh"><weel id="weel__float-action-button--container"><weel id="weel__float-action-button--icon"></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-panel"><weel id="weel__float-action-panel--container"><weel id="weel__float-action-panel--output-stream"><weel id="weel__float-action-panel--output-stream-result"><weel id="weel__float-action-panel--output-stream-result-word"><weel id="weel__float-action-panel--output-stream-phonetic"><weel id="weel__float-action-panel--i-voice"></weel><weel id="weel__float-action-panel--output-stream-phonetic-plain">&nbsp;</weel></weel><weel id="weel__float-action-panel--output-stream-explain"><weel id="weel__float-action-panel--i-copy"></weel><weel id="weel__float-action-panel--output-stream-explain-plain">&nbsp;</weel><textarea></textarea><weel id="weel__float-action-panel--output-stream-explain-detail">&nbsp;</weel></weel></weel></weel></weel></weel></weel>
+<weel style="visibility: hidden; opacity: 0;" id="weel__float-action-button" data-check-aim="false" data-api-src="google" data-lang-from="en" data-lang-to="zh"><weel id="weel__float-action-button--container"><weel id="weel__float-action-button--icon"></weel></weel></weel><weel style="visibility: hidden; opacity: 0;" id="weel__float-action-panel"><weel id="weel__float-action-panel--container"><weel id="weel__float-action-panel--output-stream"><weel id="weel__float-action-panel--output-stream-result"><weel id="weel__float-action-panel--output-stream-result-word"><weel id="weel__float-action-panel--output-stream-phonetic"><weel id="weel__float-action-panel--i-voice"></weel><weel id="weel__float-action-panel--output-stream-phonetic-plain">&nbsp;</weel></weel><weel id="weel__float-action-panel--output-stream-explain"><weel id="weel__float-action-panel--i-copy"></weel><weel id="weel__float-action-panel--output-stream-explain-plain">&nbsp;</weel><textarea></textarea><weel id="weel__float-action-panel--output-stream-explain-detail">&nbsp;</weel></weel></weel></weel></weel></weel></weel></body></html>

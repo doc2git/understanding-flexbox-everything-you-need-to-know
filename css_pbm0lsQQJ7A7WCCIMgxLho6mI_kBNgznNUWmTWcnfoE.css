@@ -1,0 +1,15 @@
+/* Code tidied up by ScrapBook */
+.element-invisible { position: absolute !important; clip: rect(1px, 1px, 1px, 1px); overflow: hidden; height: 1px; }
+.element-invisible.element-focusable:active, .element-invisible.element-focusable:focus { position: static !important; clip: auto; overflow: visible; height: auto; }
+.clearfix::after { content: "."; display: block; height: 0px; clear: both; visibility: hidden; }
+ul.menu { border: medium none; list-style: outside none none; text-align: left; }
+ul.menu li { margin: 0px 0px 0px 0.5em; }
+ul li.leaf { list-style-image: url("menu-leaf.png"); list-style-type: square; }
+li.expanded, li.collapsed, li.leaf { padding: 0.2em 0.5em 0px 0px; margin: 0px; }
+.breadcrumb { padding-bottom: 0.5em; }
+form { margin: 0px; padding: 0px; }
+img { border: 0px none; }
+.item-list ul { margin: 0px 0px 0.75em; padding: 0px; }
+.item-list ul li { margin: 0px 0px 0.25em 1.5em; padding: 0px; }
+.form-item, .form-actions { margin-top: 1em; margin-bottom: 1em; }
+label { display: block; font-weight: bold; }
